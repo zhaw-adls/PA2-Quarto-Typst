@@ -1,0 +1,252 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ZHAW Project Work 2",
+    "section": "",
+    "text": "Preface\nFor your Project Work 2, you are required to write your thesis in a markup language. This document introduces two options that we ourselves use very heavily to write our project reports.\nMarkup languages separate content from formatting. Instead of clicking bold buttons or adjusting margins manually, you write plain text with special syntax to indicate structure and formatting. Common examples include HTML, Markdown and LaTeX.\nThe main advantage: your content remains consistent regardless of output format, and you can focus on writing rather than formatting.\nLaTeX is traditionally the academic standard with excellent mathematical typesetting and precise control over document layout. It’s widely used and accepted by journals. However, LaTeX has a steep learning curve with complex syntax, produces cryptic error messages that are difficult to debug, and requires managing numerous packages and dependencies. Setting up consistent formatting often involves extensive troubleshooting.\nIn this document, we introduce alternative approaches to using Latex.\n\nTypst: This is a new markup language designed to provide LaTeX-quality output with improved syntax and much faster compilation. It has a young, vibrant and growing community and we believe Typst will replace LaTeX in the long run. Typst is an OpenSource CLI program, but it also has a Webinterface with live preview, similar to Overleaf.\nQuarto is itself not a markup language but rather a publishing system that uses either LaTeX or Typst as its backend to produce PDFs. Since Quarto is based on Markdown, the syntax is much simpler than LaTeX and in addition, you can integrate a scripting language like R, Python or Julia to make complex tables or plots from raw data within your document. In addition, you can render your Quarto document as a Website, reaching many more people this way. For exmample, see this PA2 by one of my Students, which is rendered as a PDF and as a Website.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "quarto.html",
+    "href": "quarto.html",
+    "title": "1  Quarto",
+    "section": "",
+    "text": "1.1 System Setup\nQuarto is in some ways similar to Jupyter Notebooks, which is very dominant in the python community. Quarto and Jupyter both integrate computer code and human language to produce a litarte programming output. Both are designed to work with various scripting languages such as Julia, Python and R.\nHowever, Jupyter Notebooks have several design flaws. For one, they are not plain text documents. Secondly, code input its output are merged into one file. This makes several things much more complicated, including (but not limited to) version control. In addition, the execution options for cells are very limited and abstracted away from the user in a complex JSON format.\nSome of the downsides of Jupyter Notebooks are exellently presented in this talk by Joel Grus I don’t like notebook held at the JupyterCon 2018.\nTo use Quarto for your Thesis, we recommend the following steps:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#system-setup",
+    "href": "quarto.html#system-setup",
+    "title": "1  Quarto",
+    "section": "",
+    "text": "Download and install Quarto\nSet up Quarto to work with your preferred IDE: VSCode, RStudio, Positron, Jupyter, Neovim",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#initiate-preview",
+    "href": "quarto.html#initiate-preview",
+    "title": "1  Quarto",
+    "section": "1.2 Initiate preview",
+    "text": "1.2 Initiate preview\nStart out with a empty text file with the .qmd file extension. In the examples we will use index.qmd. In the terminal, run the following command:\nquarto render index.qmd\nThis will:\n\nCreate a (currently empty) html file in the working directory\nStart a watch process that will automatically re-create index.html when changes to index.qmd are saved\nStart a local web server that will serve the rendered html file at http://localhost:someport\nOpen the rendered html file in your default web browser\n\nThis is a very good starting point to learn Quarto.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#add-text",
+    "href": "quarto.html#add-text",
+    "title": "1  Quarto",
+    "section": "1.3 Add text",
+    "text": "1.3 Add text\nNow, open index.qmd in your preferred IDE and add some content. To make things interesting, we recreate the chapter of Rousseeuw and Leroy (1987) shown in Figure 2.1 and 2.2.\n\n\n\n\n\n\n\n\n\nFigure 1.1\n\n\n\n\n\n\n\n\n\n\n\nFigure 1.2\n\n\n\n\n\n\nIn Markdown, this text is not much different than what you would write in for example Word. However, there a couple of things to note:\n\nThe title is prepended with a # symbol\nParagraphs are separated by a blank line\nItalics are created by surrounding text with single asterisks *\n\nYou can finde more information about Markdown syntax here.\n\n# Example 4: Brain and Weight Data\n\nTable 7 presents the brain weight (in grams) and the body weight (in\nkilograms) of 28 animals. (This sample was taken from larger data sets in\nWeisberg 1980 and Jerison 1973.) It is to be investigated whether a larger\nbrain is required to govern a heavier body. \n\nA clear picture of the relationship between the logarithms (to the base\n10) of these measurements is shown in Figure 7. This logarithmic \ntransformation was necessary because plotting the original measurements\nwould fail to represent either the smaller or the larger measurements.\nIndeed, both original variables range over several orders of magnitude. A\nlinear fit to this transformed data would be equivalent to a relationship of\nthe form\n\n**placeholder for formula**\n\nSave the file and see the changes reflected in the browser.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#add-metadata",
+    "href": "quarto.html#add-metadata",
+    "title": "1  Quarto",
+    "section": "1.4 Add metadata",
+    "text": "1.4 Add metadata\nQuarto documents tipically contain metadata in a YAML header at the top of the file. This metadata can add content to the document (such as a title, author name, date, etc), but also specify how the document should be rendered (for example to pdf or html). The metadata is contained between two lines with three dashes ---.\nAdd the following metadata to the top of your index.qmd file:\n---\ntitle: \"Robust Regression and Outlier Detection\" \nsubtitle: \"Chapter 2: Simple Regression\"\nauthor: \n  - Peter J. Rousseeuw\n  - Annick M. Leroy\ndate: \"1987-10-19\"\nformat: html\n---\n\n\n\n\n\n\nImportant\n\n\n\nAlthough you will need to render your PA2 to pdf, we recommend starting out with html output (it renders much faster)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#add-equations",
+    "href": "quarto.html#add-equations",
+    "title": "1  Quarto",
+    "section": "1.5 Add Equations",
+    "text": "1.5 Add Equations\nEquations aren’t necessarily the first thing we’d want to show in a Quarto document, but since we mentioned it above, let’s add it now.\nEquations are written in LaTeX syntax. Inline equations are surrounded by single dollar signs, euqations on a separate line are surrounded by double dollar signs. More on this here.\nTo write your equation, you can use an online LaTeX equation editor such as this one. You will have to experiment around and do some web searches, then copy the LaTeX code into your Quarto document.\nIn our example, you can add the following equation to the end of the document and see how it renders in the browser:\n\n$$ \\hat{y} =\\hat{\\theta}_2^{\\prime} x^{\\hat{\\theta}_1}  $$",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#add-code",
+    "href": "quarto.html#add-code",
+    "title": "1  Quarto",
+    "section": "1.6 Add Code",
+    "text": "1.6 Add Code\nNow we will experiment with adding some code to our document.\n\n\n\n\n\n\nImportant\n\n\n\nWe do not recommend writing your entire processing pipeline in a Quarto document. Instead, we recommend writing scripts that do the data processing and analysis in a separtate project, and then using Quarto to generate the report. In the Quarto document, you can use R / Python to viualize your results with plots and tables.\n\n\nTo add code, you need to create a code block. A code block starts with three backticks followed by the language name in braces, and ends with three backticks. For example, the following code block contains python code:\n```{python}\nimport pandas as pd\n```\nIf you save the file now, you will see that the code is executed and both the code and its output are shown in the rendered document.\nBy default, code blocks will show both the code and the output. You can control this behavior globally (for the entire document) or locally (for a specific code block). In our case, and we recommend this for your thesis as well, we don’t want any code to be shown in the final output. To achieve this, we add the following global options to the YAML header:\nexecute:\n  echo: false\nSave the file and see that the code is no longer shown in the rendered document.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#add-tables",
+    "href": "quarto.html#add-tables",
+    "title": "1  Quarto",
+    "section": "1.7 Add Tables",
+    "text": "1.7 Add Tables\nCreating tables is where quarto really shines, since you have your favorite programming language at your disposal. So rather than manually typesetting a machine readable table (e.g. a csv) in a markup language, you can just write a small piece of code that generates the table for you. Since R and Python have very powerful table generation libraries, we recommend using one of those languages for this purpose.\nDownload the dataset Animals.csv (right click → save as) and save it in the same directory as your index.qmd file. Then, extend the code chunk from the last step to read the data and show the data as a table:\n```{python}\nimport pandas as pd\nanimals = pd.read_csv(\"Animals.csv\")\n\nanimals\n```\nSave your file and see the table appear in the rendered document. By default, the print method for dataframes is rendered to a html table within quarto. This already looks quite good, we will ignore the little differences to the original table (duplicate index, varying column names) for now.\n\n1.7.1 Add table caption\nWhat we do need to add is a caption to the table. This can be done by adding the tbl-caption option to the code block:\n```{python}\n#| tbl-cap: \"Table 7: Brain and body weights of 28 animals.\"\nimport pandas as pd\nanimals = pd.read_csv(\"Animals.csv\")\n\nanimals\n```\n\n\n1.7.2 Add a table identifier\nCurrently, we manually numbered the table as “Table 7”. With potentially many tables and many figures in your thesis, you will want to automatically number them and be able to refer to them in the text. To do this, we need to add an identifier, a so called label to the table.\nTo let Quarto know that what we are labeling is a table, we need to prepend the label with tbl-. We add the label to the code block options like this.\n```{python}\n#| tbl-cap: \"Brain and body weights of 28 animals.\"\n#| label: tbl-animals\nimport pandas as pd\nanimals = pd.read_csv(\"Animals.csv\")\n\nanimals\n```\nNote that you should now remove Table 7 from the caption, since the table will be automatically numbered. Check your output to verify.\nNow, to refer to the table in the text, we have to replace\nTable 7 presents the brain weight (in grams) and the body weight (in\nkilograms) of 28 animals.\nWith this:\n@tbl-animals presents the brain weight (in grams) and the body weight (in\nkilograms) of 28 animals.\n\n\n\n\n\n\nNoteInformation on Cross-references\n\n\n\nhttps://quarto.org/docs/authoring/cross-references.html",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#add-figures-as-files",
+    "href": "quarto.html#add-figures-as-files",
+    "title": "1  Quarto",
+    "section": "1.8 Add Figures as files",
+    "text": "1.8 Add Figures as files\nThe general syntax for adding figures is:\n![](figure.png)\nSo, download brain-vs-body.png (right click → save as) and save it in the folder where your index.qmd file is located. Then, add the following line to your document:\n![](brain-vs-body.png)\nA caption is added in between the square brackets. A label can be added by appending {#fig-label} after the image file name. Note that either one of them will center the figure on the page.\nJust as we saw with tables, the label of a figure must be prepended with fig-.\n![Logarithmic brain weight versus logarithmic body weight for 28 animals with LS\n(dashed line) and RLS fit (solid line).](brain-vs-body.png){#fig-brain-body}\nA clear picture of the relationship between the logarithms (to the base\n10) of these measurements is shown in Figure 7.\nMust be replace with\nA clear picture of the relationship between the logarithms (to the base\n10) of these measurements is shown in @fig-brain-body.\nTo change the width of the image, you can add width in the curly braces. The width can be specified in pixels or as a percentage of the page width:\n![&lt;caption&gt;](brain-vs-body.png){#fig-brain-body width=50%}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#add-figure-from-code",
+    "href": "quarto.html#add-figure-from-code",
+    "title": "1  Quarto",
+    "section": "1.9 Add Figure from code",
+    "text": "1.9 Add Figure from code\nYou can also generate your figures from code, similarly to how we generated the table above. This makes it easy to ensure that the figures are always up to date with the sorrounding text. The following python code recreates the figure from the book. Add it to your index.qmd file and see the result in the rendered document.\n\n\n\n\n\n\nNotePython code\n\n\n\n\n\n```{python}\nimport numpy as np\nimport statsmodels.api as sm\nimport matplotlib.pyplot as plt\nfrom matplotlib.ticker import MultipleLocator\n\nanimals['logBrain'] = np.log10(animals['brain'])\nanimals['logBody'] = np.log10(animals['body'])\nX = sm.add_constant(animals['logBody'])\n\n# LS (Ordinary Least Squares) fit\nols_model = sm.OLS(animals['logBrain'], X)\nols_results = ols_model.fit()\n\n# RLS (Robust Least Squares) fit\nrls_model = sm.RLM(animals['logBrain'], X, M=sm.robust.norms.HuberT())\nrls_results = rls_model.fit()\n\n\n# Plotting\nplt.scatter(animals['logBody'], animals['logBrain'], color='black')\n# Sort by logBody to ensure proper line plotting\nsorted_indices = np.argsort(animals['logBody'])\nsorted_logBody = animals['logBody'].iloc[sorted_indices]\nsorted_ols_fitted = ols_results.fittedvalues.iloc[sorted_indices]\nsorted_rls_fitted = rls_results.fittedvalues.iloc[sorted_indices]\n\nplt.plot(sorted_logBody, sorted_ols_fitted, color='black', linestyle='--', linewidth=2, label='LS Fit')\nplt.plot(sorted_logBody, sorted_rls_fitted, color='black', linestyle='-', linewidth=1.5, label='RLS Fit')\nplt.xlabel('Log body weight')\nplt.ylabel('Log brain weight')\nplt.axis('square')\nplt.xlim(-2, 5)\nplt.ylim(-2, 5)\n\n# Set major ticks at 0, 2, 4\nplt.xticks([0, 2, 4])\nplt.yticks([0, 2, 4])\n\n# Set minor ticks at 0.4, 0.8, 1.2, 1.6, 2.4, 2.8, 3.2, 3.6\nplt.gca().xaxis.set_minor_locator(MultipleLocator(0.4))\nplt.gca().yaxis.set_minor_locator(MultipleLocator(0.4))\n\n# Set ticks to point inward with different lengths\nplt.tick_params(direction='in', which='major', length=12, width=1)\nplt.tick_params(direction='in', which='minor', length=6, width=1)\n\nplt.show()\n```\n\n\n\nJust as we did with tables, we can add a caption and a label to the figure by adding options to the code block:\n```{python}\n#| label: fig-brain-body\n#| fig-cap: \"Logarithmic brain weight versus logarithmic body weight for 28 animals with LS (dashed line) and RLS fit (solid line).\"\n\n... &lt;the rest of the python code goes here&gt; ...\n```",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#add-bibliography-and-citations",
+    "href": "quarto.html#add-bibliography-and-citations",
+    "title": "1  Quarto",
+    "section": "1.10 Add Bibliography and Citations",
+    "text": "1.10 Add Bibliography and Citations\n\n\n\n\n\n\nImportantTodo: Bibliography with Zotero?\n\n\n\n\n\n\nNext, we will replace the following hardcoded bibliography entries with citations that are automatically generated from a bibliography file.\n\n(This sample was taken from larger data sets in Weisberg 1980 and Jerison 1973)\n\nThe way this works in Quarto is analogous to how it works in Latex. The first step is to get the metadata of the papers you want to cite in a machine readable format. The most common format is BibTeX. You can find the BibTeX entry for a paper in Google Scholar by clicking on the quotation mark symbol below the search result. Also, many journals also provide BibTeX entries for their papers.\nIf we look for Weisberg, Sanford 1980 we in Google Scholar, we find the following BibTeX entry:\n@article{weisberg1980,\n  title={Some large-sample tests for nonnormality in the linear regression model: Comment},\n  author={Weisberg, Sanford},\n  journal={Journal of the American Statistical Association},\n  volume={75},\n  number={369},\n  pages={28--31},\n  year={1980},\n  publisher={JSTOR}\n}\nNote that weisberg1980 is the label of this entry, which you can choose yourself. You will need this label to cite the paper in your text. However, before you can do this, you will need to store the BibTeX entry in a file with the .bib file extension. Create a new file named references.bib in the same directory as your index.qmd file, and copy the BibTeX entry above into this file.\nNow, you need to tell Quarto where to find your bibliography file. This is done by adding the bibliography field to the YAML header of your index.qmd file:\nbibliography: references.bib\nNow, you can replace the hardcoded reference to Weisberg 1980 with a citation:\n(This sample was taken from larger data sets in @weisberg1980 and Jerison 1973)\nHave a look at the rendered document to see that the citation is now shown in the text, and a bibliography entry for Weisberg 1980 is automatically added at the end of the document. You will notice that the citation is linked to the bibliography entry in the rendered document. If you want to place it at a specific location, you can add the following line to your document where you want the bibliography to appear:\n::: {#refs}\n:::\nIn a same way, you can add the BibTeX entry for Jerison 1973 to your references.bib file and cite it in your text. The bibtex entry for Jerison 1973 is:\n@book{jerison1973,\n  title={Evolution of the brain and intelligence},\n  author={Jerison, Harry J},\n  year={1973},\n  publisher={Academic Press}\n}\nYou might have noticed that the default citation shows the year in parentheses. In this perticular case, we do not want this style, since the whole sentence is already in parantheses. To achieve this, use the following format:\n[This sample was taken from larger data sets in @weisberg1980; and @jerison1973]\nWhich will render to:\n\n(This sample was taken from larger data sets in Weisberg 1980; and Jerison 1973)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#render-to-pdf",
+    "href": "quarto.html#render-to-pdf",
+    "title": "1  Quarto",
+    "section": "1.11 Render to PDF",
+    "text": "1.11 Render to PDF\nSince html renders very fast, we usually develop our report in html format, and only periodically render to pdf to see how it looks. There are two ways to render to pdf:\n\nUsing the output pdf in the YAML header. This will use the LaTeX engine installed on your system to render the document to pdf.\nUsing the output typst in the YAML header. This will use the Typst engine to render the document to pdf.\n\nThe second method is much faster, since tyst is a very fast typesetting engine. However, it is not as mature as LaTeX, and you won’t find as many resources online. Nonetheless, we recommend using Typst for your thesis.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "quarto.html#use-zhaw-template",
+    "href": "quarto.html#use-zhaw-template",
+    "title": "1  Quarto",
+    "section": "1.12 Use ZHAW Template",
+    "text": "1.12 Use ZHAW Template\n\n\n\n\n\n\nImportantTodo",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html",
+    "href": "typst.html",
+    "title": "2  Typst",
+    "section": "",
+    "text": "2.1 System Setup\nTypst is a modern markup-based typesetting system designed as an alternative to LaTeX. It combines the power of LaTeX with a much simpler syntax and faster compilation times. Unlike traditional word processors, Typst provides precise control over document layout while being significantly more approachable than LaTeX.\nTypst excels at academic writing, technical documentation, and thesis preparation. It offers built-in support for mathematical notation, bibliographies, cross-references, and professional layouts. The language is designed with modern programming principles, making it both powerful and intuitive.\nSome key advantages of Typst over LaTeX include faster compilation, cleaner syntax, better error messages, and a more modern approach to document structure. Unlike word processors, Typst ensures consistent formatting and professional typographic quality.\nTo use Typst for your Thesis, we recommend the following steps:\nEither:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#system-setup",
+    "href": "typst.html#system-setup",
+    "title": "2  Typst",
+    "section": "",
+    "text": "Use the Typst web app for a quick start without installation or\nDownload and install Typst and then set up Typst to work with your preferred IDE with tinymist",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#initiate-preview",
+    "href": "typst.html#initiate-preview",
+    "title": "2  Typst",
+    "section": "2.2 Initiate preview",
+    "text": "2.2 Initiate preview\nStart with an empty text file with the .typ file extension. In the examples we will use main.typ.\nIf you are using typst locall, run the following command in the terminal:\ntypst watch main.typ\nThis will:\n\nCreate a PDF file in the working directory\nStart a watch process that will automatically re-create index.pdf when changes to main.typ are saved\nOpen the rendered PDF file in your default PDF viewer\n\nThis is a very good starting point to learn Typst.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#add-text",
+    "href": "typst.html#add-text",
+    "title": "2  Typst",
+    "section": "2.3 Add text",
+    "text": "2.3 Add text\nNow, open main.typ in your preferred IDE and add some content. To make things interesting, we recreate the chapter of Rousseeuw and Leroy (1987) shown in Figure 2.1 and 2.2.\n\n\n\n\n\n\n\n\n\nFigure 2.1\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.2\n\n\n\n\n\n\nIn Typst, this text is similar to Markdown but with some differences:\n\nHeadings are created with = symbols (one for level 1, two for level 2, etc.)\nParagraphs are separated by blank lines\nEmphasis is created with underscore _ for italic and asterisk * for bold\n\nYou can find more information about Typst syntax here.\n= Example 4: Brain and Weight Data\n\nTable 7 presents the brain weight (in grams) and the body weight (in\nkilograms) of 28 animals. (This sample was taken from larger data sets in\nWeisberg 1980 and Jerison 1973.) It is to be investigated whether a larger\nbrain is required to govern a heavier body. \n\nA clear picture of the relationship between the logarithms (to the base\n10) of these measurements is shown in Figure 7. This logarithmic \ntransformation was necessary because plotting the original measurements\nwould fail to represent either the smaller or the larger measurements.\nIndeed, both original variables range over several orders of magnitude. A\nlinear fit to this transformed data would be equivalent to a relationship of\nthe form\n\n_placeholder for formula_\nSave the file and see the changes reflected in the PDF viewer.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#add-metadata",
+    "href": "typst.html#add-metadata",
+    "title": "2  Typst",
+    "section": "2.4 Add metadata",
+    "text": "2.4 Add metadata\n\n\n\n\n\n\nImportantTodo: import this as a separate file\n\n\n\n\n\n\nTypst documents can contain metadata and configuration at the top of the file using function calls. This metadata can add content to the document (such as a title, author name, date, etc), but also specify how the document should be rendered.\nAdd the following metadata to the top of your main.typ file:\n#set document(title: \"Robust Regression and Outlier Detection\", author: \"Peter J. Rousseeuw, Annick M. Leroy\")\n#set page(paper: \"a4\")\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center)[\n  #text(size: 18pt, weight: \"bold\")[Robust Regression and Outlier Detection]\n  \n  #text(size: 14pt)[Chapter 2: Simple Regression]\n  \n  #v(1em)\n  \n  Peter J. Rousseeuw and Annick M. Leroy\n  \n  October 19, 1987\n]\n\n#v(2em)\n\n\n\n\n\n\nImportant\n\n\n\nTypst compiles directly to PDF, which is ideal for thesis submission. Unlike other tools, you don’t need separate rendering steps.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#add-equations",
+    "href": "typst.html#add-equations",
+    "title": "2  Typst",
+    "section": "2.5 Add Equations",
+    "text": "2.5 Add Equations\nEquations in Typst use a syntax similar to LaTeX but simpler. Inline equations are surrounded by single dollar signs, and display equations are written in blocks with the $ delimiter.\nMore information on equations can be found here.\nTo write equations, you can use an online LaTeX equation editor and adapt the syntax for Typst. You will need to experiment and refer to the Typst documentation for specific syntax differences.\nIn our example, you can add the following equation to the document:\n$ hat(y) = hat(theta)_2^prime x^(hat(theta)_1) $",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#add-code",
+    "href": "typst.html#add-code",
+    "title": "2  Typst",
+    "section": "2.6 Add Code",
+    "text": "2.6 Add Code\nTypst supports scripting capabilities for dynamic content generation, though it’s more limited compared to computational notebooks. For basic scripting and calculations, you can use Typst’s built-in functions:\n#let data = csv(\"Animals.csv\")\n#let animal_count = data.len()\n\nThis dataset contains #animal_count animals.\nFor more complex data processing, export your results to CSV or image files from Python/R and import them into Typst.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#add-tables",
+    "href": "typst.html#add-tables",
+    "title": "2  Typst",
+    "section": "2.7 Add Tables",
+    "text": "2.7 Add Tables\nCreating tables in Typst is straightforward with the table function. You can import CSV data directly or create tables manually.\nFirst, ensure you have the Animals.csv file in the same directory as your main.typ file. Then, create a table:\n#figure(\n  table(\n    columns: 3,\n    [Animal], [Brain Weight (g)], [Body Weight (kg)],\n    ..csv(\"Animals.csv\").flatten()\n  ),\n  caption: [Brain and body weights of 28 animals.]\n) &lt;tbl-animals&gt;\n\n2.7.1 Add table references\nTo reference the table in the text, replace:\nTable 7 presents the brain weight (in grams) and the body weight (in\nkilograms) of 28 animals.\nWith:\n@tbl-animals presents the brain weight (in grams) and the body weight (in\nkilograms) of 28 animals.\n\n\n\n\n\n\nNoteInformation on Cross-references\n\n\n\nhttps://typst.app/docs/reference/model/ref/",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#add-figures-as-files",
+    "href": "typst.html#add-figures-as-files",
+    "title": "2  Typst",
+    "section": "2.8 Add Figures as files",
+    "text": "2.8 Add Figures as files\nThe general syntax for adding figures is:\n#figure(\n  image(\"figure.png\"),\n  caption: [Your caption here]\n)\nDownload brain-vs-body.png and save it in the same folder as your main.typ file. Then, add the following:\n#figure(\n  image(\"brain-vs-body.png\", width: 70%),\n  caption: [Logarithmic brain weight versus logarithmic body weight for 28 animals with LS (dashed line) and RLS fit (solid line).]\n) &lt;fig-brain-body&gt;\nTo reference the figure in text, replace:\nA clear picture of the relationship between the logarithms (to the base\n10) of these measurements is shown in Figure 7.\nWith:\nA clear picture of the relationship between the logarithms (to the base\n10) of these measurements is shown in @fig-brain-body.\nYou can control the image size using the width and height parameters, specified as percentages or absolute values.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#add-bibliography-and-citations",
+    "href": "typst.html#add-bibliography-and-citations",
+    "title": "2  Typst",
+    "section": "2.9 Add Bibliography and Citations",
+    "text": "2.9 Add Bibliography and Citations\nTypst has excellent built-in support for bibliographies. Create a bibliography file in BibTeX format (.bib file) or use Typst’s YAML format (.yml file).\nCreate a file named references.bib with the following content:\n@article{weisberg1980,\n  title={Some large-sample tests for nonnormality in the linear regression model: Comment},\n  author={Weisberg, Sanford},\n  journal={Journal of the American Statistical Association},\n  volume={75},\n  number={369},\n  pages={28--31},\n  year={1980},\n  publisher={JSTOR}\n}\n\n@book{jerison1973,\n  title={Evolution of the brain and intelligence},\n  author={Jerison, Harry J},\n  year={1973},\n  publisher={Academic Press}\n}\nThen, add the bibliography to your Typst document by including this at the location, where you want your bibligraphy to appear:\n#bibliography(\"references.bib\")\nNow you can cite sources in your text:\n(This sample was taken from larger data sets in @weisberg1980 and @jerison1973)\n\n\n\n\n\n\nImportantToDo: Bibliography Styling (default is numbers)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  },
+  {
+    "objectID": "typst.html#use-zhaw-template",
+    "href": "typst.html#use-zhaw-template",
+    "title": "2  Typst",
+    "section": "2.10 Use ZHAW Template",
+    "text": "2.10 Use ZHAW Template\n\n\n\n\n\n\nImportantTodo: ZHAW Template Integration",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
+    ]
+  }
+]
