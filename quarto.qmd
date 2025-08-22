@@ -1,0 +1,427 @@
+# Quarto
+
+Quarto is in some ways similar to Jupyter Notebooks, which is very dominant in the python community. Quarto and Jupyter both integrate computer code and human language to produce a litarte programming output. Both are designed to work with various scripting languages such as Julia, Python and R. 
+
+However, Jupyter Notebooks have several design flaws. For one, they are not plain text documents. Secondly, code input its output are merged into one file. This makes several things much more complicated, including (but not limited to) version control. In addition, the execution options for cells are very limited and abstracted away from the user in a complex JSON format.
+
+Some of the downsides of Jupyter Notebooks are exellently presented in this talk by Joel Grus [I don't like notebook](https://youtu.be/7jiPeIFXb6U?si=iQDBBYXTufwQ5XKA) held at the JupyterCon 2018.
+
+To use Quarto for your Thesis, we recommend the following steps:
+
+## System Setup
+
+- [Download and install Quarto](https://quarto.org/docs/get-started/) 
+- Set up Quarto to work with your preferred IDE: [VSCode](https://quarto.org/docs/tools/vscode), [RStudio](https://quarto.org/docs/tools/rstudio), [Positron](https://quarto.org/docs/tools/positron), [Jupyter](https://quarto.org/docs/tools/jupyter-lab), [Neovim](https://quarto.org/docs/tools/neovim)
+
+
+## Initiate *preview*
+
+
+Start out with a empty text file with the `.qmd` file extension. In the examples we will use `index.qmd`. In the terminal, run the following command: 
+
+```{.bash}
+quarto render index.qmd
+```
+
+This will: 
+
+1. Create a (currently empty) html file in the working directory
+2. Start a watch process that will automatically re-create index.html when changes to `index.qmd` are saved
+3. Start a local web server that will serve the rendered html file at `http://localhost:someport`
+4. Open the rendered html file in your default web browser
+
+
+This is a very good starting point to learn Quarto. 
+
+## Add text
+
+Now, open `index.qmd` in your preferred IDE and add some content. To make things interesting, we recreate the chapter of @rousseeuw1987 shown in @fig-roussseeuw1 and -@fig-roussseeuw2.
+
+:::{layout-ncol=2 .column-page-inset}
+
+![](images/simpleregression37.png){#fig-roussseeuw1}
+
+![](images/simpleregression38.png){#fig-roussseeuw2}
+
+:::
+
+
+In Markdown, this text is not much different than what you would write in for example Word. However, there a couple of things to note:
+
+- The title is prepended with a `#` symbol
+- Paragraphs are separated by a blank line
+- Italics are created by surrounding text with single asterisks `*`
+
+You can finde more information about Markdown syntax [here](https://quarto.org/docs/authoring/markdown-basics.html).
+
+
+```{.markdown}
+
+# Example 4: Brain and Weight Data
+
+Table 7 presents the brain weight (in grams) and the body weight (in
+kilograms) of 28 animals. (This sample was taken from larger data sets in
+Weisberg 1980 and Jerison 1973.) It is to be investigated whether a larger
+brain is required to govern a heavier body. 
+
+A clear picture of the relationship between the logarithms (to the base
+10) of these measurements is shown in Figure 7. This logarithmic 
+transformation was necessary because plotting the original measurements
+would fail to represent either the smaller or the larger measurements.
+Indeed, both original variables range over several orders of magnitude. A
+linear fit to this transformed data would be equivalent to a relationship of
+the form
+
+**placeholder for formula**
+
+
+``` 
+
+
+Save the file and see the changes reflected in the browser.
+
+## Add metadata
+
+Quarto documents tipically contain metadata in a YAML header at the top of the file. This metadata can add content to the document (such as a title, author name, date, etc), but also specify how the document should be rendered (for example to pdf or html). The metadata is contained between two lines with three dashes `---`.
+
+Add the following metadata to the top of your `index.qmd` file:
+
+```{.markdown}
+---
+title: "Robust Regression and Outlier Detection" 
+subtitle: "Chapter 2: Simple Regression"
+author: 
+  - Peter J. Rousseeuw
+  - Annick M. Leroy
+date: "1987-10-19"
+format: html
+---
+``` 
+
+:::{.callout-important}
+Although you will need to render your PA2 to pdf, we recommend starting out with html output (it renders much faster)
+:::
+
+ 
+## Add Equations
+
+Equations aren't necessarily the first thing we'd want to show in a Quarto document, but since we mentioned it above, let's add it now. 
+
+Equations are written in LaTeX syntax. Inline equations are surrounded by *single* dollar signs, euqations on a separate line are surrounded by double dollar signs. More on this [here](https://quarto.org/docs/authoring/markdown-basics.html#equations).
+
+To write your equation, you can use an online LaTeX equation editor such as [this one](https://latexeditor.lagrida.com). You will have to experiment around and do some web searches, then copy the LaTeX code into your Quarto document.
+
+In our example, you can add the following equation to the end of the document and see how it renders in the browser:
+
+```{.markdown}
+
+$$ \hat{y} =\hat{\theta}_2^{\prime} x^{\hat{\theta}_1}  $$
+
+```
+
+## Add Code
+
+Now we will experiment with adding some code to our document. 
+
+:::{.callout-important}
+We do not recommend writing your entire processing pipeline in a Quarto document. Instead, we recommend writing scripts that do the data processing and analysis in a separtate project, and then using Quarto to generate the report. In the Quarto document, you can use R / Python to viualize your results with plots and tables.
+:::
+
+To add code, you need to create a code block. A code block starts with three backticks followed by the language name in braces, and ends with three backticks. For example, the following code block contains python code:
+
+```{{python}}
+import pandas as pd
+```
+
+If you save the file now, you will see that the code is executed and both the code and its output are shown in the rendered document.
+
+By default, code blocks will show both the code and the output. You can control this behavior globally (for the entire document) or locally (for a specific code block). In our case, and we **recommend this for your thesis as well**, we don't want any code to be shown in the final output. To achieve this, we add the following global options to the YAML header:
+
+```{.markdown}
+execute:
+  echo: false
+```
+
+Save the file and see that the code is no longer shown in the rendered document. 
+
+
+
+## Add Tables
+
+Creating tables is where quarto really shines, since you have your favorite programming language at your disposal. So rather than manually typesetting a machine readable table (e.g. a csv) in a markup language, you can just write a small piece of code that generates the table for you. Since R and Python have very powerful table generation libraries, we recommend using one of those languages for this purpose.
+
+Download the dataset [`Animals.csv`](Animals.csv) (right click → save as) and save it in the same directory as your `index.qmd` file. Then, extend the code chunk from the last step to read the data and show the data as a table:
+
+```{{python}}
+import pandas as pd
+animals = pd.read_csv("Animals.csv")
+
+animals
+```
+
+
+Save your file and see the table appear in the rendered document. By default, the print method for dataframes is rendered to a html table within quarto. This already looks quite good, we will ignore the little differences to the original table (duplicate index, varying column names) for now. 
+
+### Add table caption
+
+What we *do* need to add is a caption to the table. This can be done by adding the `tbl-caption` option to the code block:
+
+```{{python}}
+#| tbl-cap: "Table 7: Brain and body weights of 28 animals."
+import pandas as pd
+animals = pd.read_csv("Animals.csv")
+
+animals
+```
+
+
+### Add a table identifier
+
+Currently, we manually numbered the table as "Table 7". With potentially many tables and many figures in your thesis, you will want to automatically number them and be able to refer to them in the text. To do this, we need to add an identifier, a so called *label* to the table. 
+
+To let Quarto know that what we are labeling is a table, we need to prepend the label with `tbl-`. We add the label to the code block options like this. 
+
+```{{python}}
+#| tbl-cap: "Brain and body weights of 28 animals."
+#| label: tbl-animals
+import pandas as pd
+animals = pd.read_csv("Animals.csv")
+
+animals
+```
+
+Note that you should now remove `Table 7` from the caption, since the table will be automatically numbered. Check your output to verify.
+
+Now, to refer to the table in the text, we have to replace 
+
+```{.markdown}
+Table 7 presents the brain weight (in grams) and the body weight (in
+kilograms) of 28 animals.
+```
+
+With this:
+
+```{.markdown}
+@tbl-animals presents the brain weight (in grams) and the body weight (in
+kilograms) of 28 animals.
+```
+
+
+:::{.callout-note}
+## Information on Cross-references
+
+<https://quarto.org/docs/authoring/cross-references.html>
+:::
+
+
+## Add Figures as files
+
+The general syntax for adding figures is:
+
+```{.markdown}
+![](figure.png)
+```
+
+
+So, download [brain-vs-body.png](images/brain-vs-body.png) (right click → save as) and save it in the folder where your `index.qmd` file is located. Then, add the following line to your document:
+
+
+```{.markdown}
+![](brain-vs-body.png)
+```
+
+A caption is added in between the square brackets. A label can be added by appending `{#fig-label}` after the image file name. Note that either one of them will center the figure on the page.
+
+Just as we saw with tables, the label of a figure must be prepended with `fig-`. 
+
+```{.markdown}
+![Logarithmic brain weight versus logarithmic body weight for 28 animals with LS
+(dashed line) and RLS fit (solid line).](brain-vs-body.png){#fig-brain-body}
+```
+
+
+```{.markdown}
+A clear picture of the relationship between the logarithms (to the base
+10) of these measurements is shown in Figure 7.
+```
+
+Must be replace with
+
+```{.markdown}
+A clear picture of the relationship between the logarithms (to the base
+10) of these measurements is shown in @fig-brain-body.
+```
+
+
+To change the width of the image, you can add `width` in the curly braces. The width can be specified in pixels or as a percentage of the page width:
+
+```{.markdown}
+![<caption>](brain-vs-body.png){#fig-brain-body width=50%}
+```
+
+
+## Add Figure from code
+
+You can also generate your figures from code, similarly to how we generated the table above. This makes it easy to ensure that the figures are always up to date with the sorrounding text. The following python code recreates the figure from the book. Add it to your `index.qmd` file and see the result in the rendered document.
+
+
+:::{.callout-note collapse="true" icon=false}
+
+## Python code
+
+```{{python}}
+import numpy as np
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+from matplotlib.ticker import MultipleLocator
+
+animals['logBrain'] = np.log10(animals['brain'])
+animals['logBody'] = np.log10(animals['body'])
+X = sm.add_constant(animals['logBody'])
+
+# LS (Ordinary Least Squares) fit
+ols_model = sm.OLS(animals['logBrain'], X)
+ols_results = ols_model.fit()
+
+# RLS (Robust Least Squares) fit
+rls_model = sm.RLM(animals['logBrain'], X, M=sm.robust.norms.HuberT())
+rls_results = rls_model.fit()
+
+
+# Plotting
+plt.scatter(animals['logBody'], animals['logBrain'], color='black')
+# Sort by logBody to ensure proper line plotting
+sorted_indices = np.argsort(animals['logBody'])
+sorted_logBody = animals['logBody'].iloc[sorted_indices]
+sorted_ols_fitted = ols_results.fittedvalues.iloc[sorted_indices]
+sorted_rls_fitted = rls_results.fittedvalues.iloc[sorted_indices]
+
+plt.plot(sorted_logBody, sorted_ols_fitted, color='black', linestyle='--', linewidth=2, label='LS Fit')
+plt.plot(sorted_logBody, sorted_rls_fitted, color='black', linestyle='-', linewidth=1.5, label='RLS Fit')
+plt.xlabel('Log body weight')
+plt.ylabel('Log brain weight')
+plt.axis('square')
+plt.xlim(-2, 5)
+plt.ylim(-2, 5)
+
+# Set major ticks at 0, 2, 4
+plt.xticks([0, 2, 4])
+plt.yticks([0, 2, 4])
+
+# Set minor ticks at 0.4, 0.8, 1.2, 1.6, 2.4, 2.8, 3.2, 3.6
+plt.gca().xaxis.set_minor_locator(MultipleLocator(0.4))
+plt.gca().yaxis.set_minor_locator(MultipleLocator(0.4))
+
+# Set ticks to point inward with different lengths
+plt.tick_params(direction='in', which='major', length=12, width=1)
+plt.tick_params(direction='in', which='minor', length=6, width=1)
+
+plt.show()
+```
+:::
+
+
+Just as we did with tables, we can add a caption and a label to the figure by adding options to the code block:
+
+```{{python}}
+#| label: fig-brain-body
+#| fig-cap: "Logarithmic brain weight versus logarithmic body weight for 28 animals with LS (dashed line) and RLS fit (solid line)."
+
+... <the rest of the python code goes here> ...
+```
+
+
+
+## Add Bibliography and Citations
+
+:::{.callout-important}
+## Todo: Bibliography with Zotero?
+:::
+
+
+Next, we will replace the following hardcoded bibliography entries with citations that are automatically generated from a bibliography file. 
+
+> (This sample was taken from larger data sets in Weisberg 1980 and Jerison 1973)
+
+The way this works in Quarto is analogous to how it works in Latex. The first step is to get the metadata of the papers you want to cite in a machine readable format. The most common format is BibTeX. You can find the BibTeX entry for a paper in Google Scholar by clicking on the quotation mark symbol below the search result. Also, many journals also provide BibTeX entries for their papers.
+
+If we look for *Weisberg, Sanford 1980* we in Google Scholar, we find the following BibTeX entry:
+
+```{.bibtex}
+@article{weisberg1980,
+  title={Some large-sample tests for nonnormality in the linear regression model: Comment},
+  author={Weisberg, Sanford},
+  journal={Journal of the American Statistical Association},
+  volume={75},
+  number={369},
+  pages={28--31},
+  year={1980},
+  publisher={JSTOR}
+}
+```
+
+
+Note that `weisberg1980` is the *label* of this entry, which you can choose yourself. You will need this label to cite the paper in your text. However, before you can do this, you will need to store the BibTeX entry in a file with the `.bib` file extension. Create a new file named `references.bib` in the same directory as your `index.qmd` file, and copy the BibTeX entry above into this file.
+
+Now, you need to tell Quarto where to find your bibliography file. This is done by adding the `bibliography` field to the YAML header of your `index.qmd` file:
+
+
+```{.markdown}
+bibliography: references.bib
+```
+
+Now, you can replace the hardcoded reference to Weisberg 1980 with a citation:
+
+```{.markdown}
+(This sample was taken from larger data sets in @weisberg1980 and Jerison 1973)
+``` 
+
+Have a look at the rendered document to see that the citation is now shown in the text, and a bibliography entry for Weisberg 1980 is automatically added at the end of the document. You will notice that the citation is linked to the bibliography entry in the rendered document. If you want to place it at a specific location, you can add the following line to your document where you want the bibliography to appear:
+
+```{.markdown}
+::: {#refs}
+:::
+```
+
+In a same way, you can add the BibTeX entry for Jerison 1973 to your `references.bib` file and cite it in your text. The bibtex entry for *Jerison 1973* is:
+
+```{.bibtex}
+@book{jerison1973,
+  title={Evolution of the brain and intelligence},
+  author={Jerison, Harry J},
+  year={1973},
+  publisher={Academic Press}
+}
+
+```
+
+You might have noticed that the default citation shows the year in parentheses. In this perticular case, we do not want this style, since the whole sentence is already in parantheses. To achieve this, use the following format:
+
+```{.markdown}
+[This sample was taken from larger data sets in @weisberg1980; and @jerison1973]
+```
+
+Which will render to:
+
+> [This sample was taken from larger data sets in @weisberg1980; and @jerison1973]
+
+
+
+## Render to PDF
+
+
+Since html renders very fast, we usually develop our report in html format, and only periodically render to pdf to see how it looks. There are two ways to render to pdf:
+
+1. Using the output `pdf` in the YAML header. This will use the LaTeX engine installed on your system to render the document to pdf.
+2. Using the output `typst` in the YAML header. This will use the Typst engine to render the document to pdf.
+
+The second method is much faster, since tyst is a very fast typesetting engine. However, it is not as mature as LaTeX, and you won't find as many resources online. Nonetheless, we recommend using Typst for your thesis.
+
+
+
+
+## Use ZHAW Template
+
+:::{.callout-important}
+## Todo
+:::

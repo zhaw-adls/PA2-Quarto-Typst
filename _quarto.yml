@@ -1,0 +1,26 @@
+project:
+  type: book
+
+book:
+  title: "ZHAW Project Work 2"
+  subtitle: "Working your thesis with Quarto and / or typst"
+  author: "Nils Ratnaweera"
+  date: "2025-09-25"
+  chapters:
+    - index.qmd
+    - quarto.qmd
+    - typst.qmd
+    - references.qmd
+
+bibliography: references.bib
+suppress-bibliography: true
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+
+
+
+

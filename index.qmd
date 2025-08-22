@@ -1,0 +1,26 @@
+---
+toc: false
+---
+
+# Preface {.unnumbered}
+
+For your Project Work 2, you are required to write your thesis in a markup language. This document introduces two options that we ourselves use very heavily to write our project reports.
+
+Markup languages separate content from formatting. Instead of clicking bold buttons or adjusting margins manually, you write plain text with special syntax to indicate structure and formatting. Common examples include HTML, Markdown and LaTeX.
+
+The main advantage: your content remains consistent regardless of output format, and you can focus on writing rather than formatting.
+
+**LaTeX** is traditionally the academic standard with excellent mathematical typesetting and precise control over document layout. It's widely used and accepted by journals. However, LaTeX has a steep learning curve with complex syntax, produces cryptic error messages that are difficult to debug, and requires managing numerous packages and dependencies. Setting up consistent formatting often involves extensive troubleshooting.
+
+In this document, we introduce alternative approaches to using Latex. 
+
+
+- **Typst**: This is a new markup language designed to provide LaTeX-quality output with improved syntax and much faster compilation. It has a young, vibrant and growing community and we believe Typst will replace LaTeX in the long run. Typst is an OpenSource CLI program, but it also has a Webinterface with live preview, similar to Overleaf.
+
+- **Quarto** is itself not a markup language but rather a publishing system that uses either LaTeX or Typst  as its backend to produce PDFs. Since Quarto is based on Markdown, the syntax is much simpler than LaTeX and in addition, you can integrate a scripting language like R, Python or Julia to make complex tables or plots from raw data *within your document*. In addition, you can render your Quarto document as a Website, reaching many more people this way. For exmample, see [this PA2](https://adls-digital-environment.github.io/Krymowski-2024/) by one of my Students, which is rendered as a PDF and as a Website.
+
+
+
+
+
+
