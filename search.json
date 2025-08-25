@@ -144,7 +144,7 @@
     "href": "quarto.html#use-zhaw-template",
     "title": "1  Quarto",
     "section": "1.12 Use ZHAW Template",
-    "text": "1.12 Use ZHAW Template\n\n\n\n\n\n\nImportantTodo\n\n\n\n\n\n\n\n\n\n\nJerison, Harry J. 1973. “Fossil Evidence of the Evolution of the\nHuman Brain.” Annual Review of Anthropology 4: 27–58.\n\n\nRousseeuw, Peter J, and Annick M Leroy. 1987. Robust Regression and\nOutlier Detection. John wiley & sons.\n\n\nWeisberg, Sanford. 1980. “Some Large-Sample Tests for Nonnormality\nin the Linear Regression Model: Comment.” Journal of the\nAmerican Statistical Association 75 (369): 28–31.",
+    "text": "1.12 Use ZHAW Template\n\n\n\n\n\n\nImportantTodo\n\n\n\n\nCreate ZHAW Template for Quarto\nIntegrate ZHAW Template into these instructions\n\n\n\n\n\n\n\nJerison, Harry J. 1973. “Fossil Evidence of the Evolution of the\nHuman Brain.” Annual Review of Anthropology 4: 27–58.\n\n\nRousseeuw, Peter J, and Annick M Leroy. 1987. Robust Regression and\nOutlier Detection. John wiley & sons.\n\n\nWeisberg, Sanford. 1980. “Some Large-Sample Tests for Nonnormality\nin the Linear Regression Model: Comment.” Journal of the\nAmerican Statistical Association 75 (369): 28–31.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Quarto</span>"
     ]
@@ -194,7 +194,7 @@
     "href": "typst.html#add-metadata",
     "title": "2  Typst",
     "section": "2.4 Add metadata",
-    "text": "2.4 Add metadata\n\n\n\n\n\n\nImportantTodo Nils: import this as a separate file\n\n\n\n\n\n\nTypst documents can contain metadata and configuration at the top of the file using function calls. This metadata can add content to the document (such as a title, author name, date, etc), but also specify how the document should be rendered.\nAdd the following metadata to the top of your main.typ file:\n#set document(title: \"Robust Regression and Outlier Detection\", author: \"Peter J. Rousseeuw, Annick M. Leroy\")\n#set page(paper: \"a4\")\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center)[\n  #text(size: 18pt, weight: \"bold\")[Robust Regression and Outlier Detection]\n  \n  #text(size: 14pt)[Chapter 2: Simple Regression]\n  \n  #v(1em)\n  \n  Peter J. Rousseeuw and Annick M. Leroy\n  \n  October 19, 1987\n]\n\n#v(2em)",
+    "text": "2.4 Add metadata\n\n\n\n\n\n\nImportantTodo\n\n\n\nimport this as a separate file\n\n\nTypst documents can contain metadata and configuration at the top of the file using function calls. This metadata can add content to the document (such as a title, author name, date, etc), but also specify how the document should be rendered.\nAdd the following metadata to the top of your main.typ file:\n#set document(title: \"Robust Regression and Outlier Detection\", author: \"Peter J. Rousseeuw, Annick M. Leroy\")\n#set page(paper: \"a4\")\n#set text(font: \"New Computer Modern\", size: 11pt)\n\n#align(center)[\n  #text(size: 18pt, weight: \"bold\")[Robust Regression and Outlier Detection]\n  \n  #text(size: 14pt)[Chapter 2: Simple Regression]\n  \n  #v(1em)\n  \n  Peter J. Rousseeuw and Annick M. Leroy\n  \n  October 19, 1987\n]\n\n#v(2em)",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
     ]
@@ -244,7 +244,7 @@
     "href": "typst.html#add-bibliography-and-citations",
     "title": "2  Typst",
     "section": "2.9 Add Bibliography and Citations",
-    "text": "2.9 Add Bibliography and Citations\nTypst has excellent built-in support for bibliographies. Create a bibliography file in BibTeX format (.bib file) or use Typst’s YAML format (.yml file).\nCreate a file named references.bib with the following content:\n@article{weisberg1980,\n  title={Some large-sample tests for nonnormality in the linear regression model: Comment},\n  author={Weisberg, Sanford},\n  journal={Journal of the American Statistical Association},\n  volume={75},\n  number={369},\n  pages={28--31},\n  year={1980},\n  publisher={JSTOR}\n}\n\n@book{jerison1973,\n  title={Evolution of the brain and intelligence},\n  author={Jerison, Harry J},\n  year={1973},\n  publisher={Academic Press}\n}\nThen, add the bibliography to your Typst document by including this at the location, where you want your bibligraphy to appear:\n#bibliography(\"references.bib\")\nNow you can cite sources in your text:\n(This sample was taken from larger data sets in @weisberg1980 and @jerison1973)\n\n\n\n\n\n\nImportantToDo: Bibliography Styling (default is numbers)",
+    "text": "2.9 Add Bibliography and Citations\nTypst has excellent built-in support for bibliographies. Create a bibliography file in BibTeX format (.bib file) or use Typst’s YAML format (.yml file).\nCreate a file named references.bib with the following content:\n@article{weisberg1980,\n  title={Some large-sample tests for nonnormality in the linear regression model: Comment},\n  author={Weisberg, Sanford},\n  journal={Journal of the American Statistical Association},\n  volume={75},\n  number={369},\n  pages={28--31},\n  year={1980},\n  publisher={JSTOR}\n}\n\n@book{jerison1973,\n  title={Evolution of the brain and intelligence},\n  author={Jerison, Harry J},\n  year={1973},\n  publisher={Academic Press}\n}\nThen, add the bibliography to your Typst document by including this at the location, where you want your bibligraphy to appear:\n#bibliography(\"references.bib\")\nNow you can cite sources in your text:\n(This sample was taken from larger data sets in @weisberg1980 and @jerison1973)\n\n\n\n\n\n\nImportantToDo\n\n\n\nBibliography Styling (default is numbers)",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
     ]
@@ -254,7 +254,7 @@
     "href": "typst.html#use-zhaw-template",
     "title": "2  Typst",
     "section": "2.10 Use ZHAW Template",
-    "text": "2.10 Use ZHAW Template\n\n\n\n\n\n\nImportantTodo: ZHAW Template Integration\n\n\n\n\n\n\n\n\n\n\nRousseeuw, Peter J, and Annick M Leroy. 1987. Robust Regression and Outlier Detection. John wiley & sons.",
+    "text": "2.10 Use ZHAW Template\n\n\n\n\n\n\nImportantTodo\n\n\n\nZHAW Template Integration\n\n\n\n\n\n\nRousseeuw, Peter J, and Annick M Leroy. 1987. Robust Regression and Outlier Detection. John wiley & sons.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Typst</span>"
     ]
