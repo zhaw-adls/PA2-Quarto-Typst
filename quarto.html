@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -148,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#system-setup" id="toc-system-setup" class="nav-link active" data-scroll-target="#system-setup"><span class="header-section-number">1.1</span> System Setup</a></li>
-  <li><a href="#initiate-preview" id="toc-initiate-preview" class="nav-link" data-scroll-target="#initiate-preview"><span class="header-section-number">1.2</span> Initiate <em>preview</em></a></li>
+  <li><a href="#initiate-a-live-preview" id="toc-initiate-a-live-preview" class="nav-link" data-scroll-target="#initiate-a-live-preview"><span class="header-section-number">1.2</span> Initiate a live preview</a></li>
   <li><a href="#add-text" id="toc-add-text" class="nav-link" data-scroll-target="#add-text"><span class="header-section-number">1.3</span> Add text</a></li>
   <li><a href="#add-metadata" id="toc-add-metadata" class="nav-link" data-scroll-target="#add-metadata"><span class="header-section-number">1.4</span> Add metadata</a></li>
   <li><a href="#add-equations" id="toc-add-equations" class="nav-link" data-scroll-target="#add-equations"><span class="header-section-number">1.5</span> Add Equations</a></li>
@@ -190,8 +210,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-table-caption" id="toc-add-table-caption" class="nav-link" data-scroll-target="#add-table-caption"><span class="header-section-number">1.7.1</span> Add table caption</a></li>
   <li><a href="#add-a-table-identifier" id="toc-add-a-table-identifier" class="nav-link" data-scroll-target="#add-a-table-identifier"><span class="header-section-number">1.7.2</span> Add a table identifier</a></li>
   </ul></li>
-  <li><a href="#add-figures-as-files" id="toc-add-figures-as-files" class="nav-link" data-scroll-target="#add-figures-as-files"><span class="header-section-number">1.8</span> Add Figures as files</a></li>
-  <li><a href="#add-figure-from-code" id="toc-add-figure-from-code" class="nav-link" data-scroll-target="#add-figure-from-code"><span class="header-section-number">1.9</span> Add Figure from code</a></li>
+  <li><a href="#add-figures-as-files" id="toc-add-figures-as-files" class="nav-link" data-scroll-target="#add-figures-as-files"><span class="header-section-number">1.8</span> Add Figures (as files)</a></li>
+  <li><a href="#add-figure-from-code" id="toc-add-figure-from-code" class="nav-link" data-scroll-target="#add-figure-from-code"><span class="header-section-number">1.9</span> Add Figure (from code)</a></li>
   <li><a href="#add-bibliography-and-citations" id="toc-add-bibliography-and-citations" class="nav-link" data-scroll-target="#add-bibliography-and-citations"><span class="header-section-number">1.10</span> Add Bibliography and Citations</a></li>
   <li><a href="#render-to-pdf" id="toc-render-to-pdf" class="nav-link" data-scroll-target="#render-to-pdf"><span class="header-section-number">1.11</span> Render to PDF</a></li>
   <li><a href="#use-zhaw-template" id="toc-use-zhaw-template" class="nav-link" data-scroll-target="#use-zhaw-template"><span class="header-section-number">1.12</span> Use ZHAW Template</a></li>
@@ -199,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -223,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Quarto is in some ways similar to Jupyter Notebooks, which is very dominant in the python community. Quarto and Jupyter both integrate computer code and human language to produce a litarte programming output. Both are designed to work with various scripting languages such as Julia, Python and R.</p>
 <p>However, Jupyter Notebooks have several design flaws. For one, they are not plain text documents. Secondly, code input its output are merged into one file. This makes several things much more complicated, including (but not limited to) version control. In addition, the execution options for cells are very limited and abstracted away from the user in a complex JSON format.</p>
 <p>Some of the downsides of Jupyter Notebooks are exellently presented in this talk by Joel Grus <a href="https://youtu.be/7jiPeIFXb6U?si=iQDBBYXTufwQ5XKA">I don’t like notebook</a> held at the JupyterCon 2018.</p>
-<p>To use Quarto for your Thesis, we recommend the following steps:</p>
+<p>In the instructions below, we will implement the example chapter from <span class="citation" data-cites="rousseeuw1987">Rousseeuw and Leroy (<a href="quarto.html#ref-rousseeuw1987" role="doc-biblioref">1987</a>)</span> using Quarto, as described in <a href="index.html#sec-rousseeuw" class="quarto-xref"><span>Section 1</span></a>. If you follow the steps below, you should get a good grasp of how to use Quarto for your thesis.</p>
 <section id="system-setup" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="system-setup"><span class="header-section-number">1.1</span> System Setup</h2>
 <ul>
@@ -231,10 +251,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Set up Quarto to work with your preferred IDE: <a href="https://quarto.org/docs/tools/vscode">VSCode</a>, <a href="https://quarto.org/docs/tools/rstudio">RStudio</a>, <a href="https://quarto.org/docs/tools/positron">Positron</a>, <a href="https://quarto.org/docs/tools/jupyter-lab">Jupyter</a>, <a href="https://quarto.org/docs/tools/neovim">Neovim</a></li>
 </ul>
 </section>
-<section id="initiate-preview" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="initiate-preview"><span class="header-section-number">1.2</span> Initiate <em>preview</em></h2>
+<section id="initiate-a-live-preview" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="initiate-a-live-preview"><span class="header-section-number">1.2</span> Initiate a live preview</h2>
 <p>Start out with a empty text file with the <code>.qmd</code> file extension. In the examples we will use <code>index.qmd</code>. In the terminal, run the following command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render index.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview index.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This will:</p>
 <ol type="1">
 <li>Create a (currently empty) html file in the working directory</li>
@@ -243,78 +263,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Open the rendered html file in your default web browser</li>
 </ol>
 <p>This is a very good starting point to learn Quarto.</p>
-</section>
-<section id="add-text" class="level2 page-columns page-full" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="add-text"><span class="header-section-number">1.3</span> Add text</h2>
-<p>Now, open <code>index.qmd</code> in your preferred IDE and add some content. To make things interesting, we recreate the chapter of <span class="citation" data-cites="rousseeuw1987">Rousseeuw and Leroy (1987)</span> shown in <a href="typst.html#fig-roussseeuw1" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> and <a href="typst.html#fig-roussseeuw2" class="quarto-xref"><span>2.2</span></a>.</p>
-<div class="column-page-inset quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-roussseeuw1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-roussseeuw1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/simpleregression37.png" id="fig-roussseeuw1" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-roussseeuw1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.1
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-roussseeuw2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-roussseeuw2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/simpleregression38.png" id="fig-roussseeuw2" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-roussseeuw2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.2
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>In Markdown, this text is not much different than what you would write in for example Word. However, there a couple of things to note:</p>
-<ul>
-<li>The title is prepended with a <code>#</code> symbol</li>
-<li>Paragraphs are separated by a blank line</li>
-<li>Italics are created by surrounding text with single asterisks <code>*</code></li>
-</ul>
-<p>You can finde more information about Markdown syntax <a href="https://quarto.org/docs/authoring/markdown-basics.html">here</a>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu"># Example 4: Brain and Weight Data</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Table 7 presents the brain weight (in grams) and the body weight (in</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>kilograms) of 28 animals. (This sample was taken from larger data sets in</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Weisberg 1980 and Jerison 1973.) It is to be investigated whether a larger</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>brain is required to govern a heavier body. </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>A clear picture of the relationship between the logarithms (to the base</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>10) of these measurements is shown in Figure 7. This logarithmic </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>transformation was necessary because plotting the original measurements</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>would fail to represent either the smaller or the larger measurements.</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>Indeed, both original variables range over several orders of magnitude. A</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>linear fit to this transformed data would be equivalent to a relationship of</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>the form</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>**placeholder for formula**</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Save the file and see the changes reflected in the browser.</p>
-</section>
-<section id="add-metadata" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="add-metadata"><span class="header-section-number">1.4</span> Add metadata</h2>
-<p>Quarto documents tipically contain metadata in a YAML header at the top of the file. This metadata can add content to the document (such as a title, author name, date, etc), but also specify how the document should be rendered (for example to pdf or html). The metadata is contained between two lines with three dashes <code>---</code>.</p>
-<p>Add the following metadata to the top of your <code>index.qmd</code> file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Robust Regression and Outlier Detection" </span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Chapter 2: Simple Regression"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - Peter J. Rousseeuw</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - Annick M. Leroy</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "1987-10-19"</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -325,18 +273,80 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Although you will need to render your PA2 to pdf, we recommend starting out with html output (it renders much faster)</p>
+<p>If you are using Python with a virtual environment, make sure to activate the environment before running the command above. You might be prompted to install additional python libraries (e.g.&nbsp;<code>jupyter</code>, <code>nbformat</code>), which you should do.</p>
 </div>
 </div>
 </section>
+<section id="add-text" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="add-text"><span class="header-section-number">1.3</span> Add text</h2>
+<p>Now, open <code>index.qmd</code> in your preferred IDE and add some text from <span class="citation" data-cites="rousseeuw1987">Rousseeuw and Leroy (<a href="quarto.html#ref-rousseeuw1987" role="doc-biblioref">1987</a>)</span>. You can copy and paste the text from <a href="index.html#sec-rousseeuw" class="quarto-xref"><span>Section 1</span></a>.</p>
+<p>To format this text in Markdown, you have to apply the following changes:</p>
+<ul>
+<li>Prepend the title with a <code>#</code> symbol</li>
+<li>Separate paragraphs, titles, lists with a blank line</li>
+</ul>
+<p>We will introduce images, tables and equations later. Save the file and see the changes reflected in the browser.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>More information on Markdown
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://quarto.org/docs/authoring/markdown-basics.html" class="uri">https://quarto.org/docs/authoring/markdown-basics.html</a></p>
+</div>
+</div>
+</section>
+<section id="add-metadata" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="add-metadata"><span class="header-section-number">1.4</span> Add metadata</h2>
+<p>Quarto documents usually contain metadata in a YAML header at the top of the file. This metadata can add content to the document (such as a title, author name, date, etc), but also specify how the document should be rendered (for example to pdf or html). The metadata is contained between two lines with three dashes <code>---</code>.</p>
+<p>Add the following metadata to the top of your <code>index.qmd</code> file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Robust Regression and Outlier Detection" </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Chapter 2: Simple Regression"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - Peter J. Rousseeuw</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - Annick M. Leroy</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "1987-10-19"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Although you will need to render your thesis to pdf, we recommend starting out with html output, since it renders much faster. If no format is specified, html is the default.</p>
+</div>
+</div>
+<p>Save the file and see the changes reflected in the browser.</p>
+</section>
 <section id="add-equations" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="add-equations"><span class="header-section-number">1.5</span> Add Equations</h2>
-<p>Equations aren’t necessarily the first thing we’d want to show in a Quarto document, but since we mentioned it above, let’s add it now.</p>
-<p>Equations are written in LaTeX syntax. Inline equations are surrounded by <em>single</em> dollar signs, euqations on a separate line are surrounded by double dollar signs. More on this <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">here</a>.</p>
+<p>Equations are written in LaTeX syntax. Inline equations are surrounded by <em>single</em> dollar signs, euqations on a separate line are surrounded by double dollar signs.</p>
 <p>To write your equation, you can use an online LaTeX equation editor such as <a href="https://latexeditor.lagrida.com">this one</a>. You will have to experiment around and do some web searches, then copy the LaTeX code into your Quarto document.</p>
 <p>In our example, you can add the following equation to the end of the document and see how it renders in the browser:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>$$ \hat{y} =\hat{\theta}_2^{\prime} x^{\hat{\theta}_1}  $$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>$$ \hat{y} =\hat{\theta}_2^{\prime} x^{\hat{\theta}_1}  $$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>More information on equations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://quarto.org/docs/authoring/markdown-basics.html#equations" class="uri">https://quarto.org/docs/authoring/markdown-basics.html#equations</a></p>
+</div>
+</div>
 </section>
 <section id="add-code" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="add-code"><span class="header-section-number">1.6</span> Add Code</h2>
@@ -351,60 +361,73 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We do not recommend writing your entire processing pipeline in a Quarto document. Instead, we recommend writing scripts that do the data processing and analysis in a separtate project, and then using Quarto to generate the report. In the Quarto document, you can use R / Python to viualize your results with plots and tables.</p>
+<p>We do not recommend writing your entire data processing pipeline in a Quarto document. Instead, we recommend writing scripts that do the data processing and analysis in a separtate project, and then using Quarto to generate the report.</p>
+<p>However, you can <strong>use R / Python heavily to visualize our results in plots and tables</strong>.</p>
 </div>
 </div>
-<p>To add code, you need to create a code block. A code block starts with three backticks followed by the language name in braces, and ends with three backticks. For example, the following code block contains python code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To add code, you need to create a code block. A code block starts with three backticks followed by the language name in braces, and ends with three backticks. We recommend you find out what keyboard shortcut your IDE uses to insert a code chunk (VSCode: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> )</p>
+<p>For example, the following code block contains python code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>today <span class="op">=</span> date.today()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Today date is: "</span>, today)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you save the file now, you will see that the code is executed and both the code and its output are shown in the rendered document.</p>
 <p>By default, code blocks will show both the code and the output. You can control this behavior globally (for the entire document) or locally (for a specific code block). In our case, and we <strong>recommend this for your thesis as well</strong>, we don’t want any code to be shown in the final output. To achieve this, we add the following global options to the YAML header:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  echo: false</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  echo: false</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Save the file and see that the code is no longer shown in the rendered document.</p>
 </section>
 <section id="add-tables" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="add-tables"><span class="header-section-number">1.7</span> Add Tables</h2>
 <p>Creating tables is where quarto really shines, since you have your favorite programming language at your disposal. So rather than manually typesetting a machine readable table (e.g.&nbsp;a csv) in a markup language, you can just write a small piece of code that generates the table for you. Since R and Python have very powerful table generation libraries, we recommend using one of those languages for this purpose.</p>
-<p>Download the dataset <a href="Animals.csv"><code>Animals.csv</code></a> (right click → save as) and save it in the same directory as your <code>index.qmd</code> file. Then, extend the code chunk from the last step to read the data and show the data as a table:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> pd.read_csv(<span class="st">"Animals.csv"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>animals</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Download the dataset <code>Animals.csv</code> (see <a href="index.html#sec-rousseeuw" class="quarto-xref"><span>Section 1</span></a>) and save it in the same directory as your <code>index.qmd</code> file. Then, insert a code chunk to read the data and show the data as a table:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> pd.read_csv(<span class="st">"Animals.csv"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>animals</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Save your file and see the table appear in the rendered document. By default, the print method for dataframes is rendered to a html table within quarto. This already looks quite good, we will ignore the little differences to the original table (duplicate index, varying column names) for now.</p>
 <section id="add-table-caption" class="level3" data-number="1.7.1">
 <h3 data-number="1.7.1" class="anchored" data-anchor-id="add-table-caption"><span class="header-section-number">1.7.1</span> Add table caption</h3>
 <p>What we <em>do</em> need to add is a caption to the table. This can be done by adding the <code>tbl-caption</code> option to the code block:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table 7: Brain and body weights of 28 animals."</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> pd.read_csv(<span class="st">"Animals.csv"</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>animals</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Table 7: Brain and body weights of 28 animals."</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> pd.read_csv(<span class="st">"Animals.csv"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>animals</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="add-a-table-identifier" class="level3" data-number="1.7.2">
 <h3 data-number="1.7.2" class="anchored" data-anchor-id="add-a-table-identifier"><span class="header-section-number">1.7.2</span> Add a table identifier</h3>
 <p>Currently, we manually numbered the table as “Table 7”. With potentially many tables and many figures in your thesis, you will want to automatically number them and be able to refer to them in the text. To do this, we need to add an identifier, a so called <em>label</em> to the table.</p>
 <p>To let Quarto know that what we are labeling is a table, we need to prepend the label with <code>tbl-</code>. We add the label to the code block options like this.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Brain and body weights of 28 animals."</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-animals</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> pd.read_csv(<span class="st">"Animals.csv"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>animals</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Brain and body weights of 28 animals."</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-animals</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> pd.read_csv(<span class="st">"Animals.csv"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>animals</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Note that you should now remove <code>Table 7</code> from the caption, since the table will be automatically numbered. Check your output to verify.</p>
-<p>Now, to refer to the table in the text, we have to replace</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Table 7 presents the brain weight (in grams) and the body weight (in</span>
+<p>Now, to refer to the table in the text, we have to replace the hard coded table number with the table reference.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Before</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">After</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Table 7 presents the brain weight (in grams) and the body weight (in</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>kilograms) of 28 animals.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>@tbl-animals presents the brain weight (in grams) and the body weight (in</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>kilograms) of 28 animals.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>With this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>@tbl-animals presents the brain weight (in grams) and the body weight (in</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>kilograms) of 28 animals.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -421,28 +444,36 @@ Important
 </section>
 </section>
 <section id="add-figures-as-files" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="add-figures-as-files"><span class="header-section-number">1.8</span> Add Figures as files</h2>
+<h2 data-number="1.8" class="anchored" data-anchor-id="add-figures-as-files"><span class="header-section-number">1.8</span> Add Figures (as files)</h2>
 <p>The general syntax for adding figures is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](figure.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>So, download <a href="images/brain-vs-body.png">brain-vs-body.png</a> (right click → save as) and save it in the folder where your <code>index.qmd</code> file is located. Then, add the following line to your document:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](brain-vs-body.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A caption is added in between the square brackets. A label can be added by appending <code>{#fig-label}</code> after the image file name. Note that either one of them will center the figure on the page.</p>
-<p>Just as we saw with tables, the label of a figure must be prepended with <code>fig-</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>![Logarithmic brain weight versus logarithmic body weight for 28 animals with LS</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>(dashed line) and RLS fit (solid line).](brain-vs-body.png){#fig-brain-body}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](figure.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>So, download <code>brain-vs-body.png</code> (see <a href="index.html#sec-rousseeuw" class="quarto-xref"><span>Section 1</span></a>) and save it in the folder where your <code>index.qmd</code> file is located. Then, add the following line to your document:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](brain-vs-body.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A caption is added in between the square brackets. A label can be added by appending <code>{#fig-label}</code> after the image file name. Note that either one of them will center the figure on the page. Just as tabble labels start with <code>tbl-</code>, a figure label must start with <code>fig-</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>![Logarithmic brain weight versus logarithmic body weight for 28 animals with LS</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>(dashed line) and RLS fit (solid line).](brain-vs-body.png){#fig-brain-body}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now, you can replace the hard coded figure numbers with the figure reference:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Before</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">After</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>A clear picture of the relationship between the logarithms (to the base</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>10) of these measurements is shown in Figure 7.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>A clear picture of the relationship between the logarithms (to the base</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>10) of these measurements is shown in Figure 7.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Must be replace with</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>A clear picture of the relationship between the logarithms (to the base</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>10) of these measurements is shown in @fig-brain-body.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>10) of these measurements is shown in @fig-brain-body.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 <p>To change the width of the image, you can add <code>width</code> in the curly braces. The width can be specified in pixels or as a percentage of the page width:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="al">![&lt;caption&gt;](brain-vs-body.png)</span>{#fig-brain-body width=50%}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="al">![&lt;caption&gt;](brain-vs-body.png)</span>{#fig-brain-body width=50%}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="add-figure-from-code" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="add-figure-from-code"><span class="header-section-number">1.9</span> Add Figure from code</h2>
-<p>You can also generate your figures from code, similarly to how we generated the table above. This makes it easy to ensure that the figures are always up to date with the sorrounding text. The following python code recreates the figure from the book. Add it to your <code>index.qmd</code> file and see the result in the rendered document.</p>
+<h2 data-number="1.9" class="anchored" data-anchor-id="add-figure-from-code"><span class="header-section-number">1.9</span> Add Figure (from code)</h2>
+<p>You can also generate your figures from code, similarly to how we generated the table above. This makes it easy to ensure that the figures are always up to date with the sorrounding text. The following python code recreates the figure from the book. Add it to your Quarto document and see the result in the rendered document.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -451,104 +482,101 @@ Important
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> MultipleLocator</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>animals[<span class="st">'logBrain'</span>] <span class="op">=</span> np.log10(animals[<span class="st">'brain'</span>])</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>animals[<span class="st">'logBody'</span>] <span class="op">=</span> np.log10(animals[<span class="st">'body'</span>])</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sm.add_constant(animals[<span class="st">'logBody'</span>])</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># LS (Ordinary Least Squares) fit</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>ols_model <span class="op">=</span> sm.OLS(animals[<span class="st">'logBrain'</span>], X)</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>ols_results <span class="op">=</span> ols_model.fit()</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># RLS (Robust Least Squares) fit</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>rls_model <span class="op">=</span> sm.RLM(animals[<span class="st">'logBrain'</span>], X, M<span class="op">=</span>sm.robust.norms.HuberT())</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>rls_results <span class="op">=</span> rls_model.fit()</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>plt.scatter(animals[<span class="st">'logBody'</span>], animals[<span class="st">'logBrain'</span>], color<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort by logBody to ensure proper line plotting</span></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>sorted_indices <span class="op">=</span> np.argsort(animals[<span class="st">'logBody'</span>])</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>sorted_logBody <span class="op">=</span> animals[<span class="st">'logBody'</span>].iloc[sorted_indices]</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>sorted_ols_fitted <span class="op">=</span> ols_results.fittedvalues.iloc[sorted_indices]</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>sorted_rls_fitted <span class="op">=</span> rls_results.fittedvalues.iloc[sorted_indices]</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>plt.plot(sorted_logBody, sorted_ols_fitted, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'LS Fit'</span>)</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>plt.plot(sorted_logBody, sorted_rls_fitted, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="st">'RLS Fit'</span>)</span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Log body weight'</span>)</span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Log brain weight'</span>)</span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'square'</span>)</span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">2</span>, <span class="dv">5</span>)</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">2</span>, <span class="dv">5</span>)</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Set major ticks at 0, 2, 4</span></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>])</span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>plt.yticks([<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>])</span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Set minor ticks at 0.4, 0.8, 1.2, 1.6, 2.4, 2.8, 3.2, 3.6</span></span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>plt.gca().xaxis.set_minor_locator(MultipleLocator(<span class="fl">0.4</span>))</span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>plt.gca().yaxis.set_minor_locator(MultipleLocator(<span class="fl">0.4</span>))</span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Set ticks to point inward with different lengths</span></span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>plt.tick_params(direction<span class="op">=</span><span class="st">'in'</span>, which<span class="op">=</span><span class="st">'major'</span>, length<span class="op">=</span><span class="dv">12</span>, width<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>plt.tick_params(direction<span class="op">=</span><span class="st">'in'</span>, which<span class="op">=</span><span class="st">'minor'</span>, length<span class="op">=</span><span class="dv">6</span>, width<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> MultipleLocator</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>animals[<span class="st">'logBrain'</span>] <span class="op">=</span> np.log10(animals[<span class="st">'brain'</span>])</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>animals[<span class="st">'logBody'</span>] <span class="op">=</span> np.log10(animals[<span class="st">'body'</span>])</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sm.add_constant(animals[<span class="st">'logBody'</span>])</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># LS (Ordinary Least Squares) fit</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>ols_model <span class="op">=</span> sm.OLS(animals[<span class="st">'logBrain'</span>], X)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>ols_results <span class="op">=</span> ols_model.fit()</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co"># RLS (Robust Least Squares) fit</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>rls_model <span class="op">=</span> sm.RLM(animals[<span class="st">'logBrain'</span>], X, M<span class="op">=</span>sm.robust.norms.HuberT())</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>rls_results <span class="op">=</span> rls_model.fit()</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>plt.scatter(animals[<span class="st">'logBody'</span>], animals[<span class="st">'logBrain'</span>], color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort by logBody to ensure proper line plotting</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>sorted_indices <span class="op">=</span> np.argsort(animals[<span class="st">'logBody'</span>])</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>sorted_logBody <span class="op">=</span> animals[<span class="st">'logBody'</span>].iloc[sorted_indices]</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>sorted_ols_fitted <span class="op">=</span> ols_results.fittedvalues.iloc[sorted_indices]</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>sorted_rls_fitted <span class="op">=</span> rls_results.fittedvalues.iloc[sorted_indices]</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>plt.plot(sorted_logBody, sorted_ols_fitted, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'LS Fit'</span>)</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>plt.plot(sorted_logBody, sorted_rls_fitted, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="st">'RLS Fit'</span>)</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Log body weight'</span>)</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Log brain weight'</span>)</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'square'</span>)</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">2</span>, <span class="dv">5</span>)</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">2</span>, <span class="dv">5</span>)</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Set major ticks at 0, 2, 4</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>])</span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>plt.yticks([<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>])</span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Set minor ticks at 0.4, 0.8, 1.2, 1.6, 2.4, 2.8, 3.2, 3.6</span></span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>plt.gca().xaxis.set_minor_locator(MultipleLocator(<span class="fl">0.4</span>))</span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>plt.gca().yaxis.set_minor_locator(MultipleLocator(<span class="fl">0.4</span>))</span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Set ticks to point inward with different lengths</span></span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>plt.tick_params(direction<span class="op">=</span><span class="st">'in'</span>, which<span class="op">=</span><span class="st">'major'</span>, length<span class="op">=</span><span class="dv">12</span>, width<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>plt.tick_params(direction<span class="op">=</span><span class="st">'in'</span>, which<span class="op">=</span><span class="st">'minor'</span>, length<span class="op">=</span><span class="dv">6</span>, width<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 <p>Just as we did with tables, we can add a caption and a label to the figure by adding options to the code block:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-brain-body</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Logarithmic brain weight versus logarithmic body weight for 28 animals with LS (dashed line) and RLS fit (solid line)."</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>... <span class="op">&lt;</span>the rest of the python code goes here<span class="op">&gt;</span> ...</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-brain-body</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Logarithmic brain weight versus logarithmic body weight for 28 animals with LS (dashed line) and RLS fit (solid line)."</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>... <span class="op">&lt;</span>the rest of the python code goes here<span class="op">&gt;</span> ...</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="add-bibliography-and-citations" class="level2" data-number="1.10">
 <h2 data-number="1.10" class="anchored" data-anchor-id="add-bibliography-and-citations"><span class="header-section-number">1.10</span> Add Bibliography and Citations</h2>
-<div class="callout callout-style-default callout-important callout-empty-content callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Todo: Bibliography with Zotero?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
 <p>Next, we will replace the following hardcoded bibliography entries with citations that are automatically generated from a bibliography file.</p>
 <blockquote class="blockquote">
 <p>(This sample was taken from larger data sets in Weisberg 1980 and Jerison 1973)</p>
 </blockquote>
 <p>The way this works in Quarto is analogous to how it works in Latex. The first step is to get the metadata of the papers you want to cite in a machine readable format. The most common format is BibTeX. You can find the BibTeX entry for a paper in Google Scholar by clicking on the quotation mark symbol below the search result. Also, many journals also provide BibTeX entries for their papers.</p>
 <p>If we look for <em>Weisberg, Sanford 1980</em> we in Google Scholar, we find the following BibTeX entry:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">weisberg1980</span>,</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>={Some large-sample tests for nonnormality in the linear regression model: Comment},</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>={Weisberg, Sanford},</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>={Journal of the American Statistical Association},</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>={75},</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>={369},</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>={28--31},</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={1980},</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={JSTOR}</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">weisberg1980</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>={Some large-sample tests for nonnormality in the linear regression model: Comment},</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>={Weisberg, Sanford},</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>={Journal of the American Statistical Association},</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>={75},</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>={369},</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>={28--31},</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={1980},</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={JSTOR}</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Note that <code>weisberg1980</code> is the <em>label</em> of this entry, which you can choose yourself. You will need this label to cite the paper in your text. However, before you can do this, you will need to store the BibTeX entry in a file with the <code>.bib</code> file extension. Create a new file named <code>references.bib</code> in the same directory as your <code>index.qmd</code> file, and copy the BibTeX entry above into this file.</p>
 <p>Now, you need to tell Quarto where to find your bibliography file. This is done by adding the <code>bibliography</code> field to the YAML header of your <code>index.qmd</code> file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now, you can replace the hardcoded reference to Weisberg 1980 with a citation:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Before</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">After</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>(This sample was taken from larger data sets in Weisberg 1980 and Jerison 1973.)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>(This sample was taken from larger data sets in @weisberg1980 and Jerison 1973)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 <p>Have a look at the rendered document to see that the citation is now shown in the text, and a bibliography entry for Weisberg 1980 is automatically added at the end of the document. You will notice that the citation is linked to the bibliography entry in the rendered document. If you want to place it at a specific location, you can add the following line to your document where you want the bibliography to appear:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -559,12 +587,31 @@ Important
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={1973},</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={Academic Press}</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You might have noticed that the default citation shows the year in parentheses. In this perticular case, we do not want this style, since the whole sentence is already in parantheses. To achieve this, use the following format:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">This sample was taken from larger data sets in @weisberg1980; and @jerison1973</span><span class="co">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Which will render to:</p>
-<blockquote class="blockquote">
-<p><span class="citation" data-cites="weisberg1980 jerison1973">(This sample was taken from larger data sets in Weisberg 1980; and Jerison 1973)</span></p>
-</blockquote>
+<p>You might have noticed that the default citation shows the year in parentheses. In this perticular case, we do not want this style, since the whole sentence is already in parantheses. To achieve this, apply the following changes:</p>
+<p><strong>Before</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="rendered">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Markdown</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Rendered</a></li></ul>
+<div class="tab-content" data-group="rendered">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>(This sample was taken from larger data sets in @weisberg1980 and @jerison1973)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>(This sample was taken from larger data sets in <span class="citation" data-cites="weisberg1980">Weisberg (<a href="quarto.html#ref-weisberg1980" role="doc-biblioref">1980</a>)</span> and <span class="citation" data-cites="jerison1973">Jerison (<a href="quarto.html#ref-jerison1973" role="doc-biblioref">1973</a>)</span>)</p>
+</div>
+</div>
+</div>
+<p><strong>After</strong></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="rendered">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Markdown</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Rendered</a></li></ul>
+<div class="tab-content" data-group="rendered">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">This sample was taken from larger data sets in @weisberg1980; and @jerison1973</span><span class="co">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p><span class="citation" data-cites="weisberg1980 jerison1973">(This sample was taken from larger data sets in <a href="quarto.html#ref-weisberg1980" role="doc-biblioref">Weisberg 1980</a>; and <a href="quarto.html#ref-jerison1973" role="doc-biblioref">Jerison 1973</a>)</span></p>
+</div>
+</div>
+</div>
 </section>
 <section id="render-to-pdf" class="level2" data-number="1.11">
 <h2 data-number="1.11" class="anchored" data-anchor-id="render-to-pdf"><span class="header-section-number">1.11</span> Render to PDF</h2>
@@ -573,7 +620,7 @@ Important
 <li>Using the output <code>pdf</code> in the YAML header. This will use the LaTeX engine installed on your system to render the document to pdf.</li>
 <li>Using the output <code>typst</code> in the YAML header. This will use the Typst engine to render the document to pdf.</li>
 </ol>
-<p>The second method is much faster, since tyst is a very fast typesetting engine. However, it is not as mature as LaTeX, and you won’t find as many resources online. Nonetheless, we recommend using Typst for your thesis.</p>
+<p>The second method is much faster, since tyst is a very fast typesetting engine. However, it is not as mature as LaTeX, and you won’t find as many resources online. <strong>Nonetheless, we recommend using Typst for your thesis.</strong></p>
 </section>
 <section id="use-zhaw-template" class="level2" data-number="1.12">
 <h2 data-number="1.12" class="anchored" data-anchor-id="use-zhaw-template"><span class="header-section-number">1.12</span> Use ZHAW Template</h2>
@@ -592,8 +639,6 @@ Important
 </div>
 
 
-</section>
-
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-jerison1973" class="csl-entry" role="listitem">
 Jerison, Harry J. 1973. <span>“Fossil Evidence of the Evolution of the
@@ -608,7 +653,10 @@ Weisberg, Sanford. 1980. <span>“Some Large-Sample Tests for Nonnormality
 in the Linear Regression Model: Comment.”</span> <em>Journal of the
 American Statistical Association</em> 75 (369): 28–31.
 </div>
-</div></main> <!-- /main -->
+</div>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1010,8 +1058,8 @@ American Statistical Association</em> 75 (369): 28–31.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./index.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

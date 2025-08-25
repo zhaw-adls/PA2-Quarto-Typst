@@ -22,7 +22,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -84,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -142,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -176,19 +231,99 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>For your Project Work 2, you are required to write your thesis in a markup language. This document introduces two options that we ourselves use very heavily to write our project reports.</p>
-<p>Markup languages separate content from formatting. Instead of clicking bold buttons or adjusting margins manually, you write plain text with special syntax to indicate structure and formatting. Common examples include HTML, Markdown and LaTeX.</p>
-<p>The main advantage: your content remains consistent regardless of output format, and you can focus on writing rather than formatting.</p>
+<section id="introduction" class="level1 unnumbered page-columns page-full">
+<h1 class="unnumbered">Introduction</h1>
+<p>This is an Introduction to Students from the Degree <a href="https://www.zhaw.ch/de/lsfm/studium/bachelor/applied-digital-life-sciences">Applied Digital Life Sciences</a> who are writing their Project Work 2 (PA2) thesis.</p>
+<p>You are required to write your thesis using a markup language. This document introduces two options that we ourselves use very heavily to write our reports.</p>
+<p>Before we get into the details, let’s clarify what a markup language is. A markup language is a text-encoding system which specifies the structure and formatting of a document. They separate content from formatting. For example; instead of clicking a button to make text bold, you write special symbols around the text to indicate it should be bold. Common examples of markup languages include HTML, Markdown and LaTeX.</p>
 <p><strong>LaTeX</strong> is traditionally the academic standard with excellent mathematical typesetting and precise control over document layout. It’s widely used and accepted by journals. However, LaTeX has a steep learning curve with complex syntax, produces cryptic error messages that are difficult to debug, and requires managing numerous packages and dependencies. Setting up consistent formatting often involves extensive troubleshooting.</p>
 <p>In this document, we introduce alternative approaches to using Latex.</p>
 <ul>
 <li><p><strong>Typst</strong>: This is a new markup language designed to provide LaTeX-quality output with improved syntax and much faster compilation. It has a young, vibrant and growing community and we believe Typst will replace LaTeX in the long run. Typst is an OpenSource CLI program, but it also has a Webinterface with live preview, similar to Overleaf.</p></li>
-<li><p><strong>Quarto</strong> is itself not a markup language but rather a publishing system that uses either LaTeX or Typst as its backend to produce PDFs. Since Quarto is based on Markdown, the syntax is much simpler than LaTeX and in addition, you can integrate a scripting language like R, Python or Julia to make complex tables or plots from raw data <em>within your document</em>. In addition, you can render your Quarto document as a Website, reaching many more people this way. For exmample, see <a href="https://adls-digital-environment.github.io/Krymowski-2024/">this PA2</a> by one of my Students, which is rendered as a PDF and as a Website.</p></li>
+<li><p><strong>Quarto</strong> is itself not a markup language but rather a publishing system that uses either LaTeX or Typst as its backend to produce PDFs. Since Quarto is based on Markdown, the syntax is much simpler than LaTeX and in addition, you can integrate a scripting language like R, Python or Julia to make complex tables or plots from raw data <em>within your document</em>. In addition, you can render your Quarto document as a Website, reaching many more people this way. For exmample, see <a href="https://adls-digital-environment.github.io/Krymowski-2024/">this PA2 thesis</a> by one of my Students, which is rendered as a PDF and as a Website.</p></li>
 </ul>
+<p>These instructions were hand crafted to meet the requirements of the PA2 thesis. The way we approach this, is that we implement a chapter from a book using Quarto and typst, see <a href="#sec-rousseeuw" class="quarto-xref"><span>Example chapter</span></a>.</p>
+<section id="sec-rousseeuw" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="sec-rousseeuw">Example chapter</h2>
+<p>The example we use is a chapter on robust regression from <span class="citation" data-cites="rousseeuw1987">Rousseeuw and Leroy (<a href="quarto.html#ref-rousseeuw1987" role="doc-biblioref">1987</a>)</span> out of the book <em>Robust Regression and Outlier Detection</em>. You can download the relevant chapters <a href="images/simple_regression_example_4.pdf">here</a>, the relevant sections are displayed in <a href="#fig-roussseeuw1" class="quarto-xref">Figure&nbsp;<span>1</span></a> and <a href="#fig-roussseeuw2" class="quarto-xref"><span>2</span></a>. To make things easier, we provide you with the plain (unformatted) text below.</p>
+<p>In addition, you can download <a href="Animals.csv"><code>Animals.csv</code></a> (right click → save as) which contains the data for the example. The image <a href="images/brain-vs-body.png">brain-vs-body.png</a> shows the plot of brain weight vs body weight.</p>
+<div class="column-page-inset quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-roussseeuw1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-roussseeuw1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/simpleregression37.png" id="fig-roussseeuw1" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-roussseeuw1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-roussseeuw2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-roussseeuw2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/simpleregression38.png" id="fig-roussseeuw2" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-roussseeuw2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Example 4: Brain and Weight Data</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Table 7 presents the brain weight (in grams) and the body weight (in</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>kilograms) of 28 animals. (This sample was taken from larger data sets in</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Weisberg 1980 and Jerison 1973.) It is to be investigated whether a larger</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>brain is required to govern a heavier body. </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  A clear picture of the relationship between the logarithms (to the base</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>10) of these measurements is shown in Figure 7. This logarithmic </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for the table - </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for the plot - </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>transformation was necessary because plotting the original measurements</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>would fail to represent either the smaller or the larger measurements.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Indeed, both original variables range over several orders of magnitude. A</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>linear fit to this transformed data would be equivalent to a relationship of</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>the form</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for equation -</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>between brain weight (y) and body weight (x). Looking at Figure 7, it</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>seems that this transformation makes things more linear. Another impor-</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>tant advantage of the log scale is that the heteroscedasticity disappears.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  The LS fit is given by</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for equation -</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>(dashed line in Figure 7). The standard error associated with the slope</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>equals 0.0782, and that of the intercept term is 0.1794. In Section 3, we</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>explained how to construct a confidence interval for the unknown regres-</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>sion parameters. For the present example, n = 28 and p = 2, so one has to</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>use the 97.5% quantile of the t-distribution with 26 degrees of freedom,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>which equals 2.0555. Using the LS results, a 95% confidence interval for</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>the slope is given by t0.3353; 0.65673. The RLS yields the solid line in</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Figure 7, which is a fit with a steeper slope:</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for equation -</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-rousseeuw1987" class="csl-entry" role="listitem">
+Rousseeuw, Peter J, and Annick M Leroy. 1987. <em>Robust Regression and Outlier Detection</em>. John wiley &amp; sons.
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
