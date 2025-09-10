@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Nils Ratnaweera">
-<meta name="dcterms.date" content="2025-09-25">
 
-<title>ZHAW Project Work 2</title>
+<title>Appendix – ZHAW Project Work 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./quarto.html" rel="next">
+<link href="./typst.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -75,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -84,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix.html">Appendix</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -113,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
@@ -131,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix.html" class="sidebar-item-text sidebar-link">
+  <a href="./appendix.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Appendix</span></a>
   </div>
 </li>
@@ -140,33 +173,28 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-rousseeuw" id="toc-sec-rousseeuw" class="nav-link active" data-scroll-target="#sec-rousseeuw">Example chapter</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ZHAW Project Work 2</h1>
-<p class="subtitle lead">Working your thesis with Quarto and typst</p>
+<h1 class="title">Appendix</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Nils Ratnaweera </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 25, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -176,24 +204,79 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="welcome">Welcome</h2>
-<p>This is an Introduction to Students from the Degree <a href="https://www.zhaw.ch/de/lsfm/studium/bachelor/applied-digital-life-sciences">Applied Digital Life Sciences</a> who are writing their Project Work 2 (PA2) thesis.</p>
-<p>You are required to write your thesis using a markup language. This document introduces two options that we ourselves use very heavily to write our reports.</p>
-<p>Before we get into the details, let’s clarify what a markup language is. A markup language is a text-encoding system which specifies the structure and formatting of a document. They separate content from formatting. For example; instead of clicking a button to make text bold, you write special symbols around the text to indicate it should be bold. Common examples of markup languages include HTML, Markdown and LaTeX.</p>
-<p><strong>LaTeX</strong> is traditionally the academic standard with excellent mathematical typesetting and precise control over document layout. It’s widely used and accepted by journals. However, LaTeX has a steep learning curve with complex syntax, produces cryptic error messages that are difficult to debug, and requires managing numerous packages and dependencies. Setting up consistent formatting often involves extensive troubleshooting.</p>
-<p>In this document, we introduce an approach: <strong>Quarto</strong>. Quarto is itself not a markup language but rather a publishing system that uses a backend (tbd) to produce PDF or html outputs. There are a number of advantages of using quarto over latex:</p>
-<ul>
-<li>Quarto is based on <strong>Markdown</strong>: Markdown is not just machine readable, <u>Markdown is human readable</u> as well. You can easily read and write markdown text without needing to see the rendered output.</li>
-<li>Quarto is designed to integrate a scripting language like R or Python. This enables to make complex tables or plots from data <u>from within your document</u>.</li>
-<li>Since Quarto is based on pandoc, <u>you can export to a number of output formats</u>. To submit your thesis, will need to create a pdf. But you might also like to turn your thesis into a website, see <a href="https://adls-digital-environment.github.io/Krymowski-2024/">this example</a>.</li>
-</ul>
-</section>
-<section id="what-about-jupyter-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="what-about-jupyter-notebooks">What about Jupyter Notebooks?</h2>
-<p>Quarto is in some ways similar to Jupyter Notebooks, which is very dominant in the python community. Quarto and Jupyter both integrate computer code and human language to produce a litarate programming output. Both are designed to work with various scripting languages such as Julia, Python and R.</p>
-<p>However, Jupyter Notebooks have several design flaws. For one, they are not plain text documents. Secondly, code input its output are merged into one file. This makes several things much more complicated, including (but not limited to) version control. In addition, the execution options for cells are very limited and abstracted away from the user in a complex JSON format.</p>
-<p>Some of the downsides of Jupyter Notebooks are exellently presented in this talk by Joel Grus <a href="https://youtu.be/7jiPeIFXb6U?si=iQDBBYXTufwQ5XKA">I don’t like notebook</a> held at the JupyterCon 2018.</p>
+<section id="sec-rousseeuw" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="sec-rousseeuw">Example chapter</h2>
+<p>The example we use is a chapter on robust regression from <span class="citation" data-cites="rousseeuw1987">Rousseeuw and Leroy (1987)</span> out of the book <em>Robust Regression and Outlier Detection</em>. You can download the relevant chapters <a href="images/simple_regression_example_4.pdf">here</a>, the relevant sections are displayed in <a href="#fig-roussseeuw1" class="quarto-xref">Figure&nbsp;<span>1</span></a> and <a href="#fig-roussseeuw2" class="quarto-xref"><span>2</span></a>. To make things easier, we provide you with the plain (unformatted) text below.</p>
+<p>In addition, you can download <a href="Animals.csv"><code>Animals.csv</code></a> (right click → save as) which contains the data for the example. The image <a href="images/brain-vs-body.png">brain-vs-body.png</a> shows the plot of brain weight vs body weight.</p>
+<div class="column-page-inset quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-roussseeuw1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-roussseeuw1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/simpleregression37.png" id="fig-roussseeuw1" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-roussseeuw1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-roussseeuw2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-roussseeuw2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/simpleregression38.png" id="fig-roussseeuw2" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-roussseeuw2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Example 4: Brain and Weight Data</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Table 7 presents the brain weight (in grams) and the body weight (in</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>kilograms) of 28 animals. (This sample was taken from larger data sets in</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Weisberg 1980 and Jerison 1973.) It is to be investigated whether a larger</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>brain is required to govern a heavier body. </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  A clear picture of the relationship between the logarithms (to the base</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>10) of these measurements is shown in Figure 7. This logarithmic </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for the table - </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for the plot - </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>transformation was necessary because plotting the original measurements</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>would fail to represent either the smaller or the larger measurements.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Indeed, both original variables range over several orders of magnitude. A</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>linear fit to this transformed data would be equivalent to a relationship of</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>the form</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for equation -</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>between brain weight (y) and body weight (x). Looking at Figure 7, it</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>seems that this transformation makes things more linear. Another impor-</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>tant advantage of the log scale is that the heteroscedasticity disappears.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  The LS fit is given by</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for equation -</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>(dashed line in Figure 7). The standard error associated with the slope</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>equals 0.0782, and that of the intercept term is 0.1794. In Section 3, we</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>explained how to construct a confidence interval for the unknown regres-</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>sion parameters. For the present example, n = 28 and p = 2, so one has to</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>use the 97.5% quantile of the t-distribution with 26 degrees of freedom,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>which equals 2.0555. Using the LS results, a 95% confidence interval for</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>the slope is given by t0.3353; 0.65673. The RLS yields the solid line in</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Figure 7, which is a fit with a steeper slope:</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>placeholder for equation -</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -600,11 +683,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./typst.html" class="pagination-link" aria-label="ZHAW thesis template">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ZHAW thesis template</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./quarto.html" class="pagination-link" aria-label="From Zero to Quarto">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">From Zero to Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Typst – ZHAW Project Work 2</title>
+<title>2&nbsp; ZHAW thesis template – ZHAW Project Work 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,27 +55,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -85,7 +65,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./appendix.html" rel="next">
 <link href="./quarto.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -125,6 +105,9 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -138,7 +121,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./typst.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Typst</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./typst.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ZHAW thesis template</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -168,25 +151,25 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">From Zero to Quarto</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./typst.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Typst</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ZHAW thesis template</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="./appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
   </div>
 </li>
     </ul>
@@ -199,19 +182,13 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#system-setup" id="toc-system-setup" class="nav-link active" data-scroll-target="#system-setup"><span class="header-section-number">2.1</span> System Setup</a></li>
-  <li><a href="#initiate-a-live-preview" id="toc-initiate-a-live-preview" class="nav-link" data-scroll-target="#initiate-a-live-preview"><span class="header-section-number">2.2</span> Initiate a live preview</a></li>
-  <li><a href="#add-text" id="toc-add-text" class="nav-link" data-scroll-target="#add-text"><span class="header-section-number">2.3</span> Add text</a></li>
-  <li><a href="#add-metadata" id="toc-add-metadata" class="nav-link" data-scroll-target="#add-metadata"><span class="header-section-number">2.4</span> Add metadata</a></li>
-  <li><a href="#add-equations" id="toc-add-equations" class="nav-link" data-scroll-target="#add-equations"><span class="header-section-number">2.5</span> Add Equations</a></li>
-  <li><a href="#add-code" id="toc-add-code" class="nav-link" data-scroll-target="#add-code"><span class="header-section-number">2.6</span> Add Code</a></li>
-  <li><a href="#add-tables" id="toc-add-tables" class="nav-link" data-scroll-target="#add-tables"><span class="header-section-number">2.7</span> Add Tables</a>
+  <li><a href="#tasks" id="toc-tasks" class="nav-link active" data-scroll-target="#tasks"><span class="header-section-number">2.1</span> Tasks</a>
   <ul class="collapse">
-  <li><a href="#add-table-references" id="toc-add-table-references" class="nav-link" data-scroll-target="#add-table-references"><span class="header-section-number">2.7.1</span> Add table references</a></li>
+  <li><a href="#task-1-change-output-format" id="toc-task-1-change-output-format" class="nav-link" data-scroll-target="#task-1-change-output-format">Task 1: Change output format</a></li>
+  <li><a href="#task-2-install-the-extension" id="toc-task-2-install-the-extension" class="nav-link" data-scroll-target="#task-2-install-the-extension">Task 2: Install the extension</a></li>
+  <li><a href="#task-3-preview-the-document" id="toc-task-3-preview-the-document" class="nav-link" data-scroll-target="#task-3-preview-the-document">Task 3: Preview the document</a></li>
+  <li><a href="#task-4-read-the-template-manual" id="toc-task-4-read-the-template-manual" class="nav-link" data-scroll-target="#task-4-read-the-template-manual">Task 4: Read the template manual</a></li>
   </ul></li>
-  <li><a href="#add-figures-as-files" id="toc-add-figures-as-files" class="nav-link" data-scroll-target="#add-figures-as-files"><span class="header-section-number">2.8</span> Add Figures as files</a></li>
-  <li><a href="#add-bibliography-and-citations" id="toc-add-bibliography-and-citations" class="nav-link" data-scroll-target="#add-bibliography-and-citations"><span class="header-section-number">2.9</span> Add Bibliography and Citations</a></li>
-  <li><a href="#use-zhaw-template" id="toc-use-zhaw-template" class="nav-link" data-scroll-target="#use-zhaw-template"><span class="header-section-number">2.10</span> Use ZHAW Template</a></li>
   </ul>
 </nav>
     </div>
@@ -220,7 +197,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Typst</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">ZHAW thesis template</span></h1>
 </div>
 
 
@@ -237,247 +214,118 @@ div.csl-indent {
 </header>
 
 
-<p>Typst is a modern markup-based typesetting system designed as an alternative to LaTeX. It combines the power of LaTeX with a much simpler syntax and faster compilation times. Unlike traditional word processors, Typst provides precise control over document layout while being significantly more approachable than LaTeX.</p>
-<p>Typst excels at academic writing, technical documentation, and thesis preparation. It offers built-in support for mathematical notation, bibliographies, cross-references, and professional layouts. The language is designed with modern programming principles, making it both powerful and intuitive.</p>
-<p>Some key advantages of Typst over LaTeX include faster compilation, cleaner syntax, better error messages, and a more modern approach to document structure. Unlike word processors, Typst ensures consistent formatting and professional typographic quality.</p>
-<p>To use Typst for your Thesis, we recommend the following steps:</p>
-<section id="system-setup" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="system-setup"><span class="header-section-number">2.1</span> System Setup</h2>
-<p>Either:</p>
-<ul>
-<li>Use the <a href="https://typst.app">Typst web app</a> for a quick start without installation <em>or</em></li>
-<li><a href="https://github.com/typst/typst/releases">Download and install Typst</a> and then set up Typst to work with your preferred IDE with <a href="https://myriad-dreamin.github.io/tinymist/#label-Installation">tinymist</a></li>
-</ul>
-</section>
-<section id="initiate-a-live-preview" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="initiate-a-live-preview"><span class="header-section-number">2.2</span> Initiate a live preview</h2>
-<p>Start with an empty text file with the <code>.typ</code> file extension. In the examples we will use <code>main.typ</code>. If you are using the Typst web app, a live preview is provided automatically. However, if you are using typst localy, run the following command in the terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">typst</span> watch main.typ</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will:</p>
-<ol type="1">
-<li>Create a PDF file in the working directory</li>
-<li>Start a watch process that will automatically re-create index.pdf when changes to <code>main.typ</code> are saved</li>
-<li>Open the rendered PDF file in your default PDF viewer</li>
-</ol>
-<p>This is a very good starting point to learn Typst.</p>
-</section>
-<section id="add-text" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="add-text"><span class="header-section-number">2.3</span> Add text</h2>
-<p>Now, open <code>main.typ</code> and add some text from <span class="citation" data-cites="rousseeuw1987">Rousseeuw and Leroy (<a href="quarto.html#ref-rousseeuw1987" role="doc-biblioref">1987</a>)</span>. You can copy and paste the text from <a href="index.html#sec-rousseeuw" class="quarto-xref"><span>Section 1</span></a>.</p>
-<p>To format this text in typst, you have to apply the following changes:</p>
-<ul>
-<li>Headings are created with <code>=</code> symbols (one for level 1, two for level 2, etc.)</li>
-<li>Paragraphs are separated by blank lines</li>
-</ul>
-<p>We will introduce images, tables and equations later. Save the file and see the changes reflected in the document.</p>
+<p>In <a href="quarto.html" class="quarto-xref"><span>Chapter 1</span></a> you developped a Quarto based document in a bottom up approach. This was very important for you to get a good understanding of how Quarto works. However the output did not look at all like a document you could submit as a thesis.</p>
+<p>In this chapter, we will introduce a Quarto extension we developped that will turn your quarto document into a PDF that <u>meets the ZHAW LSFM requirements</u>. This extension uses <a href="https://typst.app">Typst</a> as a backend to generate a pdf.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>More information on typst syntax
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="https://typst.app/docs/reference/syntax/" class="uri">https://typst.app/docs/reference/syntax/</a></p>
+<p>All information on the thesis template / extension can be found here:</p>
+<p><a href="https://zhaw-lsfm.github.io/quarto-thesis/" class="uri">https://zhaw-lsfm.github.io/quarto-thesis/</a></p>
 </div>
 </div>
-</section>
-<section id="add-metadata" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="add-metadata"><span class="header-section-number">2.4</span> Add metadata</h2>
-<div class="todo callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Todo
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>import this as a separate file</p>
-</div>
-</div>
-<p>Typst documents can contain metadata and configuration at the top of the file using function calls. This metadata can add content to the document (such as a title, author name, date, etc), but also specify how the document should be rendered.</p>
-<p>Add the following metadata to the top of your <code>main.typ</code> file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">#set</span> <span class="va">document</span><span class="op">(</span>title<span class="op">:</span> <span class="st">"Robust Regression and Outlier Detection"</span><span class="op">,</span> author<span class="op">:</span> <span class="st">"Peter J. Rousseeuw, Annick M. Leroy"</span><span class="op">)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">#set</span> <span class="va">page</span><span class="op">(</span>paper<span class="op">:</span> <span class="st">"a4"</span><span class="op">)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">#set</span> <span class="va">text</span><span class="op">(</span>font<span class="op">:</span> <span class="st">"New Computer Modern"</span><span class="op">,</span> size<span class="op">:</span> <span class="fl">11pt</span><span class="op">)</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">#</span>align<span class="op">(</span>center<span class="op">)[</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">#</span>text<span class="op">(</span>size<span class="op">:</span> <span class="fl">18pt</span><span class="op">,</span> weight<span class="op">:</span> <span class="st">"bold"</span><span class="op">)[</span>Robust Regression and Outlier Detection<span class="op">]</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">#</span>text<span class="op">(</span>size<span class="op">:</span> <span class="fl">14pt</span><span class="op">)[</span>Chapter 2: Simple Regression<span class="op">]</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">#</span>v<span class="op">(</span><span class="fl">1em</span><span class="op">)</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  Peter J. Rousseeuw and Annick M. Leroy</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  October 19, 1987</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">]</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="kw">#</span>v<span class="op">(</span><span class="fl">2em</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="add-equations" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="add-equations"><span class="header-section-number">2.5</span> Add Equations</h2>
-<p>Equations in Typst use a syntax similar to LaTeX but simpler. Inline equations are surrounded by single dollar signs, and display equations are written in blocks with the <code>$</code> delimiter.</p>
-<p>To write equations, you can use an online LaTeX equation editor and adapt the syntax for Typst. You will need to experiment and refer to the Typst documentation for specific syntax differences.</p>
-<p>In our example, you can add the following equation to the document:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$ hat(y) = hat(theta)_2^prime x^(hat(theta)_1) $</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>More information on typst equations
+<p><strong>What do we mean by backend?</strong></p>
+<p>Quarto does not have a custom PDF renderer. But Quarto is based on pandoc, which means that Quarto files are converted to a markup language that <em>does</em> have a PDF renderer. There are two choices:</p>
+<ul>
+<li><strong>Latex</strong>: The classical approach to rendering pdfs. <u>Very old, very mature, but very complex</u>.</li>
+<li><strong>Typst</strong>: A new markup language designed with an improved syntax and much faster compilation. It has a young, vibrant and growing community and we believe <u>Typst will replace LaTeX in the long run</u>.</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-rendering" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rendering-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-rendering">graph LR
+    Q1[Quarto] --&gt; L[LaTeX Markup] --&gt; P1[PDF]
+    Q1 --&gt; T[Typst Markup] --&gt; P1[PDF]
+</pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p><a href="https://typst.app/docs/reference/math/" class="uri">https://typst.app/docs/reference/math/</a></p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rendering-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Quarto files are either converted to typst or latex to create a pdf. We recommend using typst.
+</figcaption>
+</figure>
 </div>
 </div>
-</section>
-<section id="add-code" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="add-code"><span class="header-section-number">2.6</span> Add Code</h2>
-<p>Typst has its own powerful scripting language. To add typst code, add a typst code block.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Today's date is</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">#</span>datetime<span class="op">.</span>today<span class="op">().</span>display<span class="op">().</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Note that in typst, you cannot include code from other languages like R or Python directly.</p>
-</section>
-<section id="add-tables" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="add-tables"><span class="header-section-number">2.7</span> Add Tables</h2>
-<p>Creating tables in Typst is straightforward with the <code>table</code> function. You can import CSV data directly or create tables manually.</p>
-<p>First, ensure you have the <a href="Animals.csv"><code>Animals.csv</code></a> file in the same directory as your <code>main.typ</code> file. Then, create a table:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">#</span>figure<span class="op">(</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  table<span class="op">(</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">[</span>Animal<span class="op">],</span> <span class="op">[</span>Brain Weight (g)<span class="op">],</span> <span class="op">[</span>Body Weight (kg)<span class="op">],</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ..csv<span class="op">(</span><span class="st">"Animals.csv"</span><span class="op">).</span>flatten<span class="op">()</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">),</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  caption<span class="op">:</span> <span class="op">[</span>Brain and body weights of 28 animals.<span class="op">]</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">)</span> <span class="va">&lt;tbl-animals&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="add-table-references" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="add-table-references"><span class="header-section-number">2.7.1</span> Add table references</h3>
-<p>To reference the table in the text:</p>
+</div>
+<!-- Typst is an OpenSource CLI program, but it also has a Webinterface with live preview, similar to Overleaf. -->
+<section id="tasks" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="tasks"><span class="header-section-number">2.1</span> Tasks</h2>
+<section id="task-1-change-output-format" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-change-output-format">Task 1: Change output format</h3>
+<p>Open the document from <a href="quarto.html" class="quarto-xref"><span>Chapter 1</span></a>. Change the output format in the metadata to <code>typst</code> and preview your document (<code>quarto preview index.qmd</code>). If you already have a preview session running in the terminal, you will need to interrupt it with <kbd>Ctrl</kbd>+<kbd>C</kbd> and then run the preview command.</p>
+<p>You can also give the latex renderer a try by compiling to <code>format: pdf</code>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Before</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">After</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Table 7 presents the brain weight (in grams) and the body weight (in</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>kilograms) of 28 animals.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Robust Regression and Outlier Detection" </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Chapter 2: Simple Regression"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - Peter J. Rousseeuw</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - Annick M. Leroy</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "1987-10-19"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">@tbl-animals</span> presents the brain weight (in grams) and the body weight (in</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>kilograms) of 28 animals.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Robust Regression and Outlier Detection" </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Chapter 2: Simple Regression"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - Peter J. Rousseeuw</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - Annick M. Leroy</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "1987-10-19"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> typst</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Information on Cross-references
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://typst.app/docs/reference/model/ref/" class="uri">https://typst.app/docs/reference/model/ref/</a></p>
 </div>
 </div>
 </section>
+<section id="task-2-install-the-extension" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-install-the-extension">Task 2: Install the extension</h3>
+<p>To facilitate the writing of your thesis, we’ve created a ZHAW LSFM template that meets the requirements made by the department. We’ve packaged this template as a <a href="https://quarto.org/docs/extensions/">Quarto extension</a>.</p>
+<p>Quarto has a convenient way to distribute extension. Since we host our code <a href="https://github.com/zhaw-lsfm/quarto-thesis">on GitHub</a>, you can simply install the extension using the GitHub Username/oganisation like so:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template zhaw-lsfm/quarto-thesis</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (we recommend you use a new, empty folder for this step and </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># answer the followup questions with `Yes`)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This will create the following folder structure on your computer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> _extensions</span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">│&nbsp;&nbsp;</span> └── ...</span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> references.bib</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> SOMENAME.qmd</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="1,2" data-code-annotation="1">The folder <code>extensions</code> is not important right now</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="2">A Quarto file with the same name as the parent folder is your starter file!</span>
+</dd>
+</dl>
 </section>
-<section id="add-figures-as-files" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="add-figures-as-files"><span class="header-section-number">2.8</span> Add Figures as files</h2>
-<p>The general syntax for adding figures is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">#</span>figure<span class="op">(</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  image<span class="op">(</span><span class="st">"figure.png"</span><span class="op">),</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  caption<span class="op">:</span> <span class="op">[</span>Your caption here<span class="op">]</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Download <a href="images/brain-vs-body.png">brain-vs-body.png</a> and save it in the same folder as your <code>main.typ</code> file. Then, add the following:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">#</span>figure<span class="op">(</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  image<span class="op">(</span><span class="st">"brain-vs-body.png"</span><span class="op">,</span> width<span class="op">:</span> <span class="fl">70%</span><span class="op">),</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  caption<span class="op">:</span> <span class="op">[</span>Logarithmic brain weight versus logarithmic body weight for 28 animals with LS (dashed line) and RLS fit (solid line).<span class="op">]</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">)</span> <span class="va">&lt;fig-brain-body&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To reference the figure in text:</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Before</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">After</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>A clear picture of the relationship between the logarithms (to the base</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>10) of these measurements is shown in Figure 7.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>A clear picture of the relationship between the logarithms (to the base</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>10) of these measurements is shown in <span class="va">@fig-brain-body</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<p>You can control the image size using the <code>width</code> and <code>height</code> parameters, specified as percentages or absolute values.</p>
+<section id="task-3-preview-the-document" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-preview-the-document">Task 3: Preview the document</h3>
+<p>Now, run <code>quarto preview SOMENAME.qmd</code> to get a first look at how your output looks like. Change the YAML metadata to meet your thesis and check the output.</p>
 </section>
-<section id="add-bibliography-and-citations" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="add-bibliography-and-citations"><span class="header-section-number">2.9</span> Add Bibliography and Citations</h2>
-<p>Typst has excellent built-in support for bibliographies. Create a bibliography file in BibTeX format (<code>.bib</code> file) or use Typst’s YAML format (<code>.yml</code> file).</p>
-<p>Create a file named <code>references.bib</code> with the following content:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">weisberg1980</span>,</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>={Some large-sample tests for nonnormality in the linear regression model: Comment},</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>={Weisberg, Sanford},</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>={Journal of the American Statistical Association},</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>={75},</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>={369},</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>={28--31},</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={1980},</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={JSTOR}</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="va">@book</span>{<span class="ot">jerison1973</span>,</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>={Evolution of the brain and intelligence},</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>={Jerison, Harry J},</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={1973},</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={Academic Press}</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then, add the bibliography to your Typst document by including this at the location, where you want your bibligraphy to appear:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">#</span>bibliography<span class="op">(</span><span class="st">"references.bib"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Now you can cite sources in your text:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode typst code-with-copy"><code class="sourceCode typst"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(This sample was taken from larger data sets in <span class="va">@weisberg1980</span> and <span class="va">@jerison1973</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="todo callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>ToDo
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Bibliography Styling (default is numbers)</p>
-</div>
-</div>
-</section>
-<section id="use-zhaw-template" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="use-zhaw-template"><span class="header-section-number">2.10</span> Use ZHAW Template</h2>
-<div class="todo callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Todo
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>ZHAW Template Integration</p>
-</div>
-</div>
+<section id="task-4-read-the-template-manual" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-read-the-template-manual">Task 4: Read the template manual</h3>
+<p>We’ve written a manual on our template / extension. Have a look at it here</p>
+<p><a href="https://zhaw-lsfm.github.io/quarto-thesis/" class="uri">https://zhaw-lsfm.github.io/quarto-thesis/</a></p>
+<p><strong>Now, you are ready to write your thesis!</strong></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-rousseeuw1987" class="csl-entry" role="listitem">
-Rousseeuw, Peter J, and Annick M Leroy. 1987. <em>Robust Regression and Outlier Detection</em>. John wiley &amp; sons.
-</div>
-</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -882,13 +730,13 @@ Rousseeuw, Peter J, and Annick M Leroy. 1987. <em>Robust Regression and Outlier 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./quarto.html" class="pagination-link" aria-label="Quarto">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Quarto</span></span>
+      <a href="./quarto.html" class="pagination-link" aria-label="From Zero to Quarto">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">From Zero to Quarto</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./appendix.html" class="pagination-link" aria-label="Appendix">
+        <span class="nav-page-text">Appendix</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
