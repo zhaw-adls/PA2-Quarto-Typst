@@ -2,23 +2,31 @@
 toc: false
 ---
 
-# Preface {.unnumbered}
+## Welcome {.unnumbered}
 
-For your Project Work 2, you are required to write your thesis in a markup language. This document introduces two options that we ourselves use very heavily to write our project reports.
+This is an Introduction to Students from the Degree [Applied Digital Life Sciences](https://www.zhaw.ch/de/lsfm/studium/bachelor/applied-digital-life-sciences) who are writing their Project Work 2 (PA2) thesis. 
 
-Markup languages separate content from formatting. Instead of clicking bold buttons or adjusting margins manually, you write plain text with special syntax to indicate structure and formatting. Common examples include HTML, Markdown and LaTeX.
+You are required to write your thesis using a markup language. This document introduces two options that we ourselves use very heavily to write our reports.
 
-The main advantage: your content remains consistent regardless of output format, and you can focus on writing rather than formatting.
+Before we get into the details, let's clarify what a markup language is. A markup language is a text-encoding system which specifies the structure and formatting of a document. They separate content from formatting. For example; instead of clicking a button to make text bold, you write special symbols around the text to indicate it should be bold. Common examples of markup languages include HTML, Markdown and LaTeX.
 
 **LaTeX** is traditionally the academic standard with excellent mathematical typesetting and precise control over document layout. It's widely used and accepted by journals. However, LaTeX has a steep learning curve with complex syntax, produces cryptic error messages that are difficult to debug, and requires managing numerous packages and dependencies. Setting up consistent formatting often involves extensive troubleshooting.
 
-In this document, we introduce alternative approaches to using Latex. 
+In this document, we introduce an approach: **Quarto**. Quarto is itself not a markup language but rather a publishing system that uses a backend (tbd) to produce PDF or html outputs. There are a number of advantages of using quarto over latex:
+
+- Quarto is based on **Markdown**: Markdown is not just machine readable, [Markdown is human readable]{.underline} as well. You can easily read and write markdown text without needing to see the rendered output.
+- Quarto is designed to integrate a scripting language like R or Python. This enables to make complex tables or plots from data [from within your document]{.underline}. 
+- Since Quarto is based on pandoc, [you can export to a number of output formats]{.underline}. To submit your  thesis, will need to create a pdf. But you might also like to turn your thesis into a website, see [this example](https://adls-digital-environment.github.io/Krymowski-2024/).
 
 
-- **Typst**: This is a new markup language designed to provide LaTeX-quality output with improved syntax and much faster compilation. It has a young, vibrant and growing community and we believe Typst will replace LaTeX in the long run. Typst is an OpenSource CLI program, but it also has a Webinterface with live preview, similar to Overleaf.
 
-- **Quarto** is itself not a markup language but rather a publishing system that uses either LaTeX or Typst  as its backend to produce PDFs. Since Quarto is based on Markdown, the syntax is much simpler than LaTeX and in addition, you can integrate a scripting language like R, Python or Julia to make complex tables or plots from raw data *within your document*. In addition, you can render your Quarto document as a Website, reaching many more people this way. For exmample, see [this PA2](https://adls-digital-environment.github.io/Krymowski-2024/) by one of my Students, which is rendered as a PDF and as a Website.
+## What about Jupyter Notebooks?
 
+Quarto is in some ways similar to Jupyter Notebooks, which is very dominant in the python community. Quarto and Jupyter both integrate computer code and human language to produce a litarate programming output. Both are designed to work with various scripting languages such as Julia, Python and R. 
+
+However, Jupyter Notebooks have several design flaws. For one, they are not plain text documents. Secondly, code input its output are merged into one file. This makes several things much more complicated, including (but not limited to) version control. In addition, the execution options for cells are very limited and abstracted away from the user in a complex JSON format.
+
+Some of the downsides of Jupyter Notebooks are exellently presented in this talk by Joel Grus [I don't like notebook](https://youtu.be/7jiPeIFXb6U?si=iQDBBYXTufwQ5XKA) held at the JupyterCon 2018.
 
 
 

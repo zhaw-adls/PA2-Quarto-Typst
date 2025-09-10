@@ -1,263 +1,138 @@
-# Typst
 
-Typst is a modern markup-based typesetting system designed as an alternative to LaTeX. It combines the power of LaTeX with a much simpler syntax and faster compilation times. Unlike traditional word processors, Typst provides precise control over document layout while being significantly more approachable than LaTeX.
+# ZHAW thesis template
 
-Typst excels at academic writing, technical documentation, and thesis preparation. It offers built-in support for mathematical notation, bibliographies, cross-references, and professional layouts. The language is designed with modern programming principles, making it both powerful and intuitive.
+In @sec-exercieses you developped a Quarto based document in a bottom up approach. This was very important for you to get a good understanding of how Quarto works. However the output did not look at all like a document you could submit as a thesis.
 
-Some key advantages of Typst over LaTeX include faster compilation, cleaner syntax, better error messages, and a more modern approach to document structure. Unlike word processors, Typst ensures consistent formatting and professional typographic quality.
-
-To use Typst for your Thesis, we recommend the following steps:
-
-## System Setup
-
-Either:
-
-- Use the [Typst web app](https://typst.app) for a quick start without installation *or*
-- [Download and install Typst](https://github.com/typst/typst/releases) and then set up Typst to work with your preferred IDE with [tinymist](https://myriad-dreamin.github.io/tinymist/#label-Installation)
-
-## Initiate *preview*
-
-Start with an empty text file with the `.typ` file extension. In the examples we will use `main.typ`. 
-
-If you are using typst locall, run the following command in the terminal: 
-
-```bash
-typst watch main.typ
-```
-
-This will: 
-
-1. Create a PDF file in the working directory
-2. Start a watch process that will automatically re-create index.pdf when changes to `main.typ` are saved
-3. Open the rendered PDF file in your default PDF viewer
-
-This is a very good starting point to learn Typst. 
-
-## Add text
-
-Now, open `main.typ` in your preferred IDE and add some content. To make things interesting, we recreate the chapter of @rousseeuw1987 shown in @fig-roussseeuw1 and -@fig-roussseeuw2.
-
-:::{layout-ncol=2 .column-page-inset}
-
-![](images/simpleregression37.png){#fig-roussseeuw1}
-
-![](images/simpleregression38.png){#fig-roussseeuw2}
-
-:::
-
-In Typst, this text is similar to Markdown but with some differences:
-
-- Headings are created with `=` symbols (one for level 1, two for level 2, etc.)
-- Paragraphs are separated by blank lines
-- Emphasis is created with underscore `_` for italic and asterisk `*` for bold
-
-You can find more information about Typst syntax [here](https://typst.app/docs/reference/syntax/).
-
-```typst
-= Example 4: Brain and Weight Data
-
-Table 7 presents the brain weight (in grams) and the body weight (in
-kilograms) of 28 animals. (This sample was taken from larger data sets in
-Weisberg 1980 and Jerison 1973.) It is to be investigated whether a larger
-brain is required to govern a heavier body. 
-
-A clear picture of the relationship between the logarithms (to the base
-10) of these measurements is shown in Figure 7. This logarithmic 
-transformation was necessary because plotting the original measurements
-would fail to represent either the smaller or the larger measurements.
-Indeed, both original variables range over several orders of magnitude. A
-linear fit to this transformed data would be equivalent to a relationship of
-the form
-
-_placeholder for formula_
-``` 
-
-Save the file and see the changes reflected in the PDF viewer.
-
-## Add metadata
-
-:::{.callout-important}
-## Todo: import this as a separate file
-:::
-
-Typst documents can contain metadata and configuration at the top of the file using function calls. This metadata can add content to the document (such as a title, author name, date, etc), but also specify how the document should be rendered.
-
-Add the following metadata to the top of your `main.typ` file:
-
-```typst
-#set document(title: "Robust Regression and Outlier Detection", author: "Peter J. Rousseeuw, Annick M. Leroy")
-#set page(paper: "a4")
-#set text(font: "New Computer Modern", size: 11pt)
-
-#align(center)[
-  #text(size: 18pt, weight: "bold")[Robust Regression and Outlier Detection]
-  
-  #text(size: 14pt)[Chapter 2: Simple Regression]
-  
-  #v(1em)
-  
-  Peter J. Rousseeuw and Annick M. Leroy
-  
-  October 19, 1987
-]
-
-#v(2em)
-``` 
-
-:::{.callout-important}
-Typst compiles directly to PDF, which is ideal for thesis submission. Unlike other tools, you don't need separate rendering steps.
-:::
-
-## Add Equations
-
-Equations in Typst use a syntax similar to LaTeX but simpler. Inline equations are surrounded by single dollar signs, and display equations are written in blocks with the `$` delimiter.
-
-More information on equations can be found [here](https://typst.app/docs/reference/math/).
-
-To write equations, you can use an online LaTeX equation editor and adapt the syntax for Typst. You will need to experiment and refer to the Typst documentation for specific syntax differences.
-
-In our example, you can add the following equation to the document:
-
-```typst
-$ hat(y) = hat(theta)_2^prime x^(hat(theta)_1) $
-```
-
-## Add Code
-
-Typst supports scripting capabilities for dynamic content generation, though it's more limited compared to computational notebooks. For basic scripting and calculations, you can use Typst's built-in functions:
-
-```typst
-#let data = csv("Animals.csv")
-#let animal_count = data.len()
-
-This dataset contains #animal_count animals.
-```
-
-For more complex data processing, export your results to CSV or image files from Python/R and import them into Typst.
-
-## Add Tables
-
-Creating tables in Typst is straightforward with the `table` function. You can import CSV data directly or create tables manually.
-
-First, ensure you have the [`Animals.csv`](Animals.csv) file in the same directory as your `main.typ` file. Then, create a table:
-
-```typst
-#figure(
-  table(
-    columns: 3,
-    [Animal], [Brain Weight (g)], [Body Weight (kg)],
-    ..csv("Animals.csv").flatten()
-  ),
-  caption: [Brain and body weights of 28 animals.]
-) <tbl-animals>
-```
-
-### Add table references
-
-To reference the table in the text, replace:
-
-```typst
-Table 7 presents the brain weight (in grams) and the body weight (in
-kilograms) of 28 animals.
-```
-
-With:
-
-```typst
-@tbl-animals presents the brain weight (in grams) and the body weight (in
-kilograms) of 28 animals.
-```
+In this chapter, we will introduce a Quarto extension we developped that will turn your quarto document into a PDF that [meets the ZHAW LSFM requirements]{.underline}. This extension uses [Typst](https://typst.app) as a backend to generate a pdf. 
 
 :::{.callout-note}
-## Information on Cross-references
 
-<https://typst.app/docs/reference/model/ref/>
+All information on the thesis template / extension can be found here:
+
+<https://zhaw-lsfm.github.io/quarto-thesis/>
+
 :::
 
-## Add Figures as files
 
-The general syntax for adding figures is:
+**What do we mean by backend?**
 
-```typst
-#figure(
-  image("figure.png"),
-  caption: [Your caption here]
-)
+Quarto does not have a custom PDF renderer. But Quarto is based on pandoc, which means that Quarto files are converted to a markup language that *does* have a PDF renderer. There are two choices:
+
+- **Latex**: The classical approach to rendering pdfs. [Very old, very mature, but very complex]{.underline}. 
+- **Typst**: A new markup language designed with an improved syntax and much faster compilation. It has a young, vibrant and growing community and we believe [Typst will replace LaTeX in the long run]{.underline}. 
+
+
+```{mermaid}
+%%| fig-cap: "Quarto files are either converted to typst or latex to create a pdf. We recommend using typst."
+%%| label: fig-rendering
+graph LR
+    Q1[Quarto] --> L[LaTeX Markup] --> P1[PDF]
+    Q1 --> T[Typst Markup] --> P1[PDF]
 ```
 
-Download [brain-vs-body.png](images/brain-vs-body.png) and save it in the same folder as your `main.typ` file. Then, add the following:
 
-```typst
-#figure(
-  image("brain-vs-body.png", width: 70%),
-  caption: [Logarithmic brain weight versus logarithmic body weight for 28 animals with LS (dashed line) and RLS fit (solid line).]
-) <fig-brain-body>
-```
-
-To reference the figure in text, replace:
-
-```typst
-A clear picture of the relationship between the logarithms (to the base
-10) of these measurements is shown in Figure 7.
-```
-
-With:
-
-```typst
-A clear picture of the relationship between the logarithms (to the base
-10) of these measurements is shown in @fig-brain-body.
-```
-
-You can control the image size using the `width` and `height` parameters, specified as percentages or absolute values.
+<!-- Typst is an OpenSource CLI program, but it also has a Webinterface with live preview, similar to Overleaf. -->
 
 
-## Add Bibliography and Citations
+## Tasks
 
-Typst has excellent built-in support for bibliographies. Create a bibliography file in BibTeX format (`.bib` file) or use Typst's YAML format (`.yml` file).
-
-Create a file named `references.bib` with the following content:
-
-```bibtex
-@article{weisberg1980,
-  title={Some large-sample tests for nonnormality in the linear regression model: Comment},
-  author={Weisberg, Sanford},
-  journal={Journal of the American Statistical Association},
-  volume={75},
-  number={369},
-  pages={28--31},
-  year={1980},
-  publisher={JSTOR}
-}
-
-@book{jerison1973,
-  title={Evolution of the brain and intelligence},
-  author={Jerison, Harry J},
-  year={1973},
-  publisher={Academic Press}
+```{r}
+#| echo: false
+counter <- 0
+nxt <- function() {
+  counter <<- counter + 1
+  paste("Task",counter)
 }
 ```
 
-Then, add the bibliography to your Typst document by including this at the location, where you want your bibligraphy to appear:
 
-```typst
-#bibliography("references.bib")
-```
+### `r nxt()`:  Change output format
 
-Now you can cite sources in your text:
+Open the document from @sec-exercieses. Change the output format in the metadata to `typst` and preview your document (`quarto preview index.qmd`). If you already have a preview session running in the terminal, you will need to interrupt it with <kbd>Ctrl</kbd>+<kbd>C</kbd> and then run the preview command.
 
-```typst
-(This sample was taken from larger data sets in @weisberg1980 and @jerison1973)
-```
+You can also give the latex renderer a try by compiling to `format: pdf`. 
 
-:::{.callout-important}
 
-## ToDo: Bibliography Styling (default is numbers)
+
+::: {.panel-tabset}
+
+## Before
+
+```{.markdown}
+---
+title: "Robust Regression and Outlier Detection" 
+subtitle: "Chapter 2: Simple Regression"
+author: 
+  - Peter J. Rousseeuw
+  - Annick M. Leroy
+date: "1987-10-19"
+format: html
+---
+``` 
+
+
+
+## After
+
+```{.markdown}
+---
+title: "Robust Regression and Outlier Detection" 
+subtitle: "Chapter 2: Simple Regression"
+author: 
+  - Peter J. Rousseeuw
+  - Annick M. Leroy
+date: "1987-10-19"
+format: typst
+---
+``` 
 
 :::
 
 
-## Use ZHAW Template
+### `r nxt()`:  Install the extension 
 
-:::{.callout-important}
-## Todo: ZHAW Template Integration
-:::
+To facilitate the writing of your thesis, we've created a ZHAW LSFM template that meets the requirements made by the department. We've packaged this template as a [Quarto extension](https://quarto.org/docs/extensions/). 
+
+
+Quarto has a convenient way to distribute extension. Since we host our code [on GitHub](https://github.com/zhaw-lsfm/quarto-thesis), you can simply install the extension using the GitHub Username/oganisation like so:
+
+```{.bash}
+quarto use template zhaw-lsfm/quarto-thesis
+
+# (we recommend you use a new, empty folder for this step and 
+# answer the followup questions with `Yes`)
+``` 
+
+
+This will create the following folder structure on your computer:
+
+```{.bash}
+├── _extensions          # <1>
+│   └── ...              # <1>
+├── references.bib
+└── SOMENAME.qmd         # <2>
+
+
+```
+
+1. The folder `extensions` is not important right now
+2. A Quarto file with the same name as the parent folder is your starter file!
+
+### `r nxt()`:  Preview the document
+
+Now, run `quarto preview SOMENAME.qmd` to get a first look at how your output looks like. Change the YAML metadata to meet your thesis and check the output. 
+
+
+### `r nxt()`:  Read the template manual
+
+
+We've written a manual on our template / extension. Have a look at it here
+
+<https://zhaw-lsfm.github.io/quarto-thesis/>
+
+
+**Now, you are ready to write your thesis!**
+
+
+
+
