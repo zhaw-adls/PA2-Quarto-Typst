@@ -21,8 +21,11 @@ format:
   html:
     suppress-bibliography: true
     theme:
-      - cosmo
-      - brand
+      light: [flatly]
+      dark: [flatly, "misc/presenter.scss"]    
+    highlight-style:
+      light: misc/arrow-light.theme
+      dark: misc/arrow-light.theme
     number-depth: 2
 
 
